@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NEUROPAC — Techno-Commercial Strategy</title>
+  <meta name="description" content="NEUROPAC — Pragmatic, board-level delivery across technology, finance and security." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gelasio:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary:#55085E;
+      --accent:#8B5FBF;
+      --light:#F7F2FB;
+      --text:#1f2937;
+      --muted:#6b7280;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body {
+      margin:0;
+      font-family:"Gelasio", serif;
+      color:var(--text);
+      background:white;
+      line-height:1.6;
+      position:relative; /* for watermark layering */
+    }
+    /* Subtle full-page hex watermark */
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      background:url('images/hex.png') center/70vmin no-repeat;
+      opacity:.05;           /* subtle! */
+      pointer-events:none;
+      z-index:-1;             /* sits behind all content */
+      filter:grayscale(100%);
+    }
+
+    .wrap{max-width:1000px;margin:0 auto;padding:24px}
+    header{
+      position:sticky;top:0;background:rgba(255,255,255,.85);
+      backdrop-filter:saturate(180%) blur(8px);
+      border-bottom:1px solid #e5e7eb;
+    }
+    nav{display:flex;align-items:center;justify-content:space-between;height:64px;gap:12px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand img{height:40px;width:auto}
+    .hero{
+      background: radial-gradient(1200px 420px at 50% -120px, var(--light), transparent);
+      padding:56px 0 24px;
+      text-align:center;
+    }
+    .hero .banner{height:48px;width:auto;margin-bottom:16px}
+    h1{font-size:clamp(28px,4vw,44px);line-height:1.15;margin:12px 0 8px;color:var(--primary)}
+    p.lead{max-width:800px;margin:0 auto 16px;color:#374151}
+    .pills{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:8px 0 12px}
+    .pill{font-size:12px;padding:6px 10px;border-radius:999px;background:#ffffffb3;border:1px solid #ffffffa3;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+    .location-line{font-size:13px;color:var(--muted);margin-top:6px}
+    .grid{display:grid;gap:16px}
+    .services{padding:40px 0}
+    .cards{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+    .card{border:1px solid #e5e7eb;border-radius:16px;padding:16px;background:white}
+    .kpis{padding:24px 0}
+    .kpi{border:1px solid #e5e7eb;border-radius:16px;padding:16px;background:linear-gradient(135deg, #fff, #fafafa)}
+    .kpi .num{font-size:28px;font-weight:800;color:var(--primary)}
+    .about,.contact{padding:40px 0}
+    .contact .info{display:flex;flex-direction:column;gap:8px;font-size:14px;color:#374151}
+    footer{border-top:1px solid #e5e7eb;padding:20px 0;margin-top:auto}
+    .small{font-size:12px;color:#6b7280}
+    a, button, input, textarea{outline-color:var(--primary)}
+    @media (max-width:480px){
+      /* no CTAs now, but keep responsive niceties */
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <nav>
+        <div class="brand">
+          <img src="images/fullbanner_transparent.png" alt="NEUROPAC hex logo" style="height:80px">
+        </div>
+        <!-- Removed top-right CTA -->
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <h1>Intelligent connections that deliver</h1>
+        <p class="lead">
+          NEUROPAC blends expertise across procurement, finance and partnerships, 
+          acting as one to create sustainable value and board-ready results.
+        </p>
+        <!-- Smart location strapline -->
+        <p class="location-line">📍 London HQ • UK coverage • International capability</p>
+      </div>
+    </section>
+
+
+    <section id="services" class="services">
+      <div class="wrap">
+        <h2 style="color:var(--primary);margin:0 0 12px">Our expertise</h2>
+        <div class="grid cards">
+          
+          <div class="card">
+            <h3 style="margin:0 0 8px;color:var(--primary)">Procurement & Technology Sourcing</h3>
+            <p>
+              Intelligent sourcing that goes beyond price. We design supplier strategies, negotiate contracts 
+              and unlock long-term value from technology investments. From should-cost modelling to whole-life 
+              value, NEUROPAC helps organisations buy smarter, build resilience and support ethical sourcing 
+              grounded in human dignity.
+            </p>
+          </div>
+          
+          <div class="card">
+            <h3 style="margin:0 0 8px;color:var(--primary)">Commercial Finance & Cost Transformation</h3>
+            <p>
+              Connecting numbers to strategy. We deliver board-ready financial insight, whole-life cost 
+              modelling and transformation programmes that drive measurable savings without eroding innovation. 
+              Our work ensures clarity, accountability and benefits realisation that withstand CFO-level scrutiny.
+            </p>
+          </div>
+          
+          <div class="card">
+            <h3 style="margin:0 0 8px;color:var(--primary)">Strategic Alliances & Partner Ecosystems</h3>
+            <p>
+              Building intelligent connections between vendors, partners and clients. We enable MSSP readiness, 
+              co-sell motions and security alliances that turn fragmented technologies into trusted, scalable 
+              ecosystems. From cloud and edge to automation and AI, we help alliances land in practice — not just on paper.
+            </p>
+          </div>
+      
+        </div>
+          <div class="card full-width">
+          <h3 style="margin:0 0 8px;color:var(--primary)">Risk & Ethics</h3>
+          <p>
+             At NEUROPAC, risk and ethics are not an afterthought — they are built into the way we help clients operate. 
+    We work with organisations to ensure integrity in numbers, transparency in relationships and accountability in delivery. 
+    By embedding sustainability, governance and respect for human dignity, we enable clients to create results that are not only commercially strong but also responsible, trusted and enduring.
+          </p>
+        </div>
+        </div>
+
+    </section>
+
+
+    <section class="kpis">
+      <div class="wrap grid cards">
+        <div class="kpi">
+          <div class="num">$600m+</div>
+          <div class="small">Revenue underpinned by partner ecosystem</div>
+          <div class="small">Built with 30+ specialist vendors</div>
+        </div>
+        <div class="kpi">
+          <div class="num">15–25%</div>
+          <div class="small">Run-rate cost savings secured</div>
+          <div class="small">Through should-cost & governance</div>
+        </div>
+        <div class="kpi">
+          <div class="num">&lt;12 weeks</div>
+          <div class="small">To first value</div>
+          <div class="small">From charter to operating cadence</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="about">
+      <div class="wrap grid" style="grid-template-columns:1.5fr .8fr;align-items:start">
+        <div>
+          <h2 style="color:var(--primary);margin:0 0 12px">About NEUROPAC</h2>
+          <p>NEUROPAC is built on intelligent connections — linking technology, finance and procurement with the strength of a pack. We bring disciplines together, acting as one, to solve complex challenges with clarity and measurable impact.</p>
+          <p>Our approach combines board-level rigour with hands-on delivery. Strategies are designed to land in the real world, with numbers that withstand CFO scrutiny and outcomes that create lasting value.</p>
+          <p>London-based, NEUROPAC undertakes projects across the UK and internationally. Chartered credentials across IT, engineering and accounting underpin a pragmatic, trusted style of working — intelligent connections, strong as a pack, expertise acting as one.</p>
+          
+        </div>
+        <div class="card">
+          <ul style="margin:0;padding-left:18px">
+            <li>• FIET • FCIPS • CITP • MBA (Cambridge Judge)</li>
+            <li>• Microsoft Security specialisations</li>
+            <li>• Home-automation & video AI practitioner</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="wrap grid" style="grid-template-columns:1fr;gap:24px">
+        <div>
+          <h2 style="color:var(--primary);margin:0 0 8px">Working together</h2>
+          <p class="small">Email to arrange a first conversation</p>
+          <div class="info">
+            <div>📧 <a href="mailto:team@neuropac.co.uk">team@neuropac.co.uk</a></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+    <footer id="site-footer"
+      style="position:fixed;bottom:0;left:0;width:100%;
+            background:rgba(255,255,255,.85);
+            backdrop-filter:saturate(180%) blur(8px);
+            border-top:1px solid #e5e7eb;padding:16px 0;z-index:1000;">
+      <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
+        <div class="brand">
+          <img src="images/hex.png" alt="NEUROPAC hex logo" style="height:80px">
+        </div>
+        <div class="small">© <span id="year"></span> NEUROPAC. All rights reserved.</div>
+        <div class="small">
+          <a href="#" style="color:inherit;text-decoration:underline">Privacy</a> · 
+          <a href="#" style="color:inherit;text-decoration:underline">Terms</a>
+        </div>
+      </div>
+    </footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

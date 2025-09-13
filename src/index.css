@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+/* Sticky footer to match header style */
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: saturate(180%) blur(8px);
+  border-top: 1px solid #e5e7eb;
+  padding: 16px 0;
+  z-index: 1000;
+}
+
+/* Add bottom spacing so content never hides behind footer */
+main {
+  padding-bottom: 120px; /* adjust to match your footer height */
+}
+
