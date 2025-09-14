@@ -28,21 +28,21 @@
       position:relative; /* keep for the watermark layer */
     }
 
-    /* Watermark behind everything (single hex, subtle) */
+    /* Note to self: single hex watermark, subtle and centered */
     body::before{
       content:"";
       position:fixed;
       inset:0;
       background:url('images/hex.png') center/70vmin no-repeat;
-      opacity:.05;                /* dial this if I want more/less presence */
+      opacity:.05;                /* tweak this if I want more/less presence */
       pointer-events:none;
-      z-index:-1;                 /* ensure it never blocks clicks */
-      filter:grayscale(100%);     /* keep brand subtle in the bg */
+      z-index:-1;                 /* must sit behind everything */
+      filter:grayscale(100%);     /* keeps it muted so content stays readable */
     }
 
     .wrap{max-width:1000px;margin:0 auto;padding:24px}
 
-    /* Header mirrors the footer frost/glass feel */
+    /* Header uses same frosted look as footer */
     header{
       position:sticky;top:0;background:rgba(255,255,255,.85);
       backdrop-filter:saturate(180%) blur(8px);
@@ -53,6 +53,7 @@
     .brand img{height:40px;width:auto}
 
     .hero{
+      /* Gentle radial highlight behind hero text */
       background: radial-gradient(1200px 420px at 50% -120px, var(--light), transparent);
       padding:56px 0 24px;
       text-align:center;
@@ -65,13 +66,14 @@
     .grid{display:grid;gap:16px}
     .services{padding:40px 0}
 
-    /* Cards grid: 3-up responsive */
+    /* 3-up responsive cards; drops to 1–2 cols on small screens */
     .cards{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
     .card{border:1px solid #e5e7eb;border-radius:16px;padding:16px;background:white}
 
-    /* Make the “Risk & Ethics” card span the full row */
+    /* Make the “Risk & Ethics” card span the full row of the grid */
     .card.full-width{grid-column:1 / -1}
 
+    /* KPI block kept in reserve (I’ve removed it for now) */
     .kpis{padding:24px 0}
     .kpi{border:1px solid #e5e7eb;border-radius:16px;padding:16px;background:linear-gradient(135deg, #fff, #fafafa)}
     .kpi .num{font-size:28px;font-weight:800;color:var(--primary)}
@@ -79,13 +81,13 @@
     .about,.contact{padding:40px 0}
     .contact .info{display:flex;flex-direction:column;gap:8px;font-size:14px;color:#374151}
 
-    /* Footer is fixed; JS sets main padding to match its height */
+    /* Footer is fixed; padding for it is handled by the script at the bottom */
     footer{border-top:1px solid #e5e7eb}
     .small{font-size:12px;color:#6b7280}
 
     a, button, input, textarea{outline-color:var(--primary)}
     @media (max-width:480px){
-      /* keep layout tidy on mobile */
+      /* Keep layout tidy on small screens; hero sizing already uses clamp() */
     }
   </style>
 </head>
@@ -94,7 +96,7 @@
     <div class="wrap">
       <nav>
         <div class="brand">
-          <!-- Using the full banner in the header for stronger brand presence -->
+          <!-- Full banner in header for stronger immediate branding -->
           <img src="images/fullbanner_transparent.png" alt="NEUROPAC hex logo" style="height:80px">
         </div>
         <!-- Top-right CTA intentionally removed -->
@@ -110,7 +112,7 @@
           NEUROPAC blends expertise across procurement, finance and alliances,
           with intelligent connections to create sustainable value and board-ready results.
         </p>
-        <!-- Location/availability line—practical and understated -->
+        <!-- Practical availability line; understated on purpose -->
         <p class="location-line">📍 London HQ • UK coverage • International capability</p>
       </div>
     </section>
@@ -119,7 +121,7 @@
       <div class="wrap">
         <h2 style="color:var(--primary);margin:0 0 12px">Our expertise</h2>
 
-        <!-- Keep the full-width card INSIDE this grid so the span works -->
+        <!-- Note: full-width card must live inside this grid to span properly -->
         <div class="grid cards">
 
           <div class="card">
@@ -149,7 +151,7 @@
             </p>
           </div>
 
-          <!-- Bedrock principle: risk, ethics, integrity (spans all columns) -->
+          <!-- Bedrock principle that underpins all three pillars -->
           <div class="card full-width">
             <h3 style="margin:0 0 8px;color:var(--primary)">Risk & Ethics</h3>
             <p>
@@ -188,7 +190,7 @@
     </section>
   </main>
 
-  <!-- Fixed footer (matches header style). JS below ensures content never hides behind it -->
+  <!-- Fixed footer (mirrors header frost). Script below ensures content never hides behind it -->
   <footer id="site-footer"
     style="position:fixed;bottom:0;left:0;width:100%;
           background:rgba(255,255,255,.85);
@@ -196,7 +198,7 @@
           border-top:1px solid #e5e7eb;padding:8px 0;z-index:1000;">
     <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:nowrap">
       <div class="brand">
-        <!-- Footer hex set deliberately large for identity; adjust here if needed -->
+        <!-- Keeping the hex prominent here for identity; adjust height if needed -->
         <img src="images/hex.png" alt="NEUROPAC hex logo" style="height:80px">
       </div>
       <div class="small" style="white-space:nowrap;">
@@ -210,15 +212,15 @@
   </footer>
 
   <script>
-    // Year stamp
+    // Set the footer year automatically (no manual edits each year)
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Ensure the main area always leaves room for the fixed footer
+    // Ensure main content never hides behind the fixed footer
     const footer = document.getElementById("site-footer");
     const mainEl = document.querySelector("main");
     function padForFooter() { mainEl.style.paddingBottom = footer.offsetHeight + "px"; }
-    padForFooter();                      // on load
-    window.addEventListener("resize", padForFooter); // on resize
+    padForFooter();                               // run on load
+    window.addEventListener("resize", padForFooter); // keep it correct on resize
   </script>
 </body>
 </html>
