@@ -13,8 +13,7 @@ footer {
   z-index: 1000;
 }
 
-/* Add bottom spacing so content never hides behind footer */
+/* Default padding (overwritten by JS later) */
 main {
-  padding-bottom: 120px; /* adjust to match your footer height */
+  padding-bottom: 140px;
 }
-
