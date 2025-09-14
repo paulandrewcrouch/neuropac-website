@@ -25,21 +25,24 @@
       color:var(--text);
       background:white;
       line-height:1.6;
-      position:relative; /* for watermark layering */
+      position:relative; /* keep for the watermark layer */
     }
-    /* Subtle full-page hex watermark */
+
+    /* Watermark behind everything (single hex, subtle) */
     body::before{
       content:"";
       position:fixed;
       inset:0;
       background:url('images/hex.png') center/70vmin no-repeat;
-      opacity:.05;           /* subtle! */
+      opacity:.05;                /* dial this if I want more/less presence */
       pointer-events:none;
-      z-index:-1;             /* sits behind all content */
-      filter:grayscale(100%);
+      z-index:-1;                 /* ensure it never blocks clicks */
+      filter:grayscale(100%);     /* keep brand subtle in the bg */
     }
 
     .wrap{max-width:1000px;margin:0 auto;padding:24px}
+
+    /* Header mirrors the footer frost/glass feel */
     header{
       position:sticky;top:0;background:rgba(255,255,255,.85);
       backdrop-filter:saturate(180%) blur(8px);
@@ -48,6 +51,7 @@
     nav{display:flex;align-items:center;justify-content:space-between;height:64px;gap:12px}
     .brand{display:flex;align-items:center;gap:12px}
     .brand img{height:40px;width:auto}
+
     .hero{
       background: radial-gradient(1200px 420px at 50% -120px, var(--light), transparent);
       padding:56px 0 24px;
@@ -56,23 +60,32 @@
     .hero .banner{height:48px;width:auto;margin-bottom:16px}
     h1{font-size:clamp(28px,4vw,44px);line-height:1.15;margin:12px 0 8px;color:var(--primary)}
     p.lead{max-width:800px;margin:0 auto 16px;color:#374151}
-    .pills{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:8px 0 12px}
-    .pill{font-size:12px;padding:6px 10px;border-radius:999px;background:#ffffffb3;border:1px solid #ffffffa3;box-shadow:0 1px 2px rgba(0,0,0,.04)}
     .location-line{font-size:13px;color:var(--muted);margin-top:6px}
+
     .grid{display:grid;gap:16px}
     .services{padding:40px 0}
+
+    /* Cards grid: 3-up responsive */
     .cards{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
     .card{border:1px solid #e5e7eb;border-radius:16px;padding:16px;background:white}
+
+    /* Make the “Risk & Ethics” card span the full row */
+    .card.full-width{grid-column:1 / -1}
+
     .kpis{padding:24px 0}
     .kpi{border:1px solid #e5e7eb;border-radius:16px;padding:16px;background:linear-gradient(135deg, #fff, #fafafa)}
     .kpi .num{font-size:28px;font-weight:800;color:var(--primary)}
+
     .about,.contact{padding:40px 0}
     .contact .info{display:flex;flex-direction:column;gap:8px;font-size:14px;color:#374151}
-    footer{border-top:1px solid #e5e7eb;padding:20px 0;margin-top:auto}
+
+    /* Footer is fixed; JS sets main padding to match its height */
+    footer{border-top:1px solid #e5e7eb}
     .small{font-size:12px;color:#6b7280}
+
     a, button, input, textarea{outline-color:var(--primary)}
     @media (max-width:480px){
-      /* no CTAs now, but keep responsive niceties */
+      /* keep layout tidy on mobile */
     }
   </style>
 </head>
@@ -81,9 +94,10 @@
     <div class="wrap">
       <nav>
         <div class="brand">
+          <!-- Using the full banner in the header for stronger brand presence -->
           <img src="images/fullbanner_transparent.png" alt="NEUROPAC hex logo" style="height:80px">
         </div>
-        <!-- Removed top-right CTA -->
+        <!-- Top-right CTA intentionally removed -->
       </nav>
     </div>
   </header>
@@ -93,64 +107,66 @@
       <div class="wrap">
         <h1>Intelligent connections that deliver</h1>
         <p class="lead">
-          NEUROPAC blends expertise across procurement, finance and partnerships, 
+          NEUROPAC blends expertise across procurement, finance and partnerships,
           acting as one to create sustainable value and board-ready results.
         </p>
-        <!-- Smart location strapline -->
+        <!-- Location/availability line—practical and understated -->
         <p class="location-line">📍 London HQ • UK coverage • International capability</p>
       </div>
     </section>
 
-
     <section id="services" class="services">
       <div class="wrap">
         <h2 style="color:var(--primary);margin:0 0 12px">Our expertise</h2>
+
+        <!-- Keep the full-width card INSIDE this grid so the span works -->
         <div class="grid cards">
-          
+
           <div class="card">
             <h3 style="margin:0 0 8px;color:var(--primary)">Procurement & Technology Sourcing</h3>
             <p>
-              Intelligent sourcing that goes beyond price. We design supplier strategies, negotiate contracts 
-              and unlock long-term value from technology investments. From should-cost modelling to whole-life 
-              value, NEUROPAC helps organisations buy smarter, build resilience and support ethical sourcing 
-              grounded in human dignity.
+              Intelligent sourcing that goes beyond price. We design supplier strategies, negotiate contracts
+              and unlock long-term value from technology investments. From should-cost modelling to whole-life
+              value, NEUROPAC helps organisations buy smarter and build resilience.
             </p>
           </div>
-          
+
           <div class="card">
             <h3 style="margin:0 0 8px;color:var(--primary)">Commercial Finance & Cost Transformation</h3>
             <p>
-              Connecting numbers to strategy. We deliver board-ready financial insight, whole-life cost 
-              modelling and transformation programmes that drive measurable savings without eroding innovation. 
+              Connecting numbers to strategy. We deliver board-ready financial insight, whole-life cost
+              modelling and transformation programmes that drive measurable savings without eroding innovation.
               Our work ensures clarity, accountability and benefits realisation that withstand CFO-level scrutiny.
             </p>
           </div>
-          
+
           <div class="card">
             <h3 style="margin:0 0 8px;color:var(--primary)">Strategic Alliances & Partner Ecosystems</h3>
             <p>
-              Building intelligent connections between vendors, partners and clients. We enable MSSP readiness, 
-              co-sell motions and security alliances that turn fragmented technologies into trusted, scalable 
-              ecosystems. From cloud and edge to automation and AI, we help alliances land in practice — not just on paper.
+              Building intelligent connections between vendors, partners and clients. We enable MSSP readiness,
+              co-sell motions and security alliances that turn fragmented technologies into trusted, scalable
+              ecosystems. From cloud and edge to automation and AI, we help alliances land in practice.
             </p>
           </div>
-      
-        </div>
+
+          <!-- Bedrock principle: risk, ethics, integrity (spans all columns) -->
           <div class="card full-width">
-          <h3 style="margin:0 0 8px;color:var(--primary)">Risk & Ethics</h3>
-          <p>
-             At NEUROPAC, risk and ethics are not an afterthought — they are built into the way we help clients operate. 
-    We work with organisations to ensure integrity in numbers, transparency in relationships and accountability in delivery. 
-    By embedding sustainability, governance and respect for human dignity, we enable clients to create results that are not only commercially strong but also responsible, trusted and enduring.
-          </p>
-        </div>
-        </div>
+            <h3 style="margin:0 0 8px;color:var(--primary)">Risk & Ethics</h3>
+            <p>
+              Risk and ethics are built into delivery. We help clients ensure integrity in numbers,
+              transparency in relationships and accountability in execution. By embedding sustainability,
+              governance and respect for human dignity, results are not only commercially strong but
+              also responsible, trusted and enduring.
+            </p>
+          </div>
 
+        </div>
+      </div>
     </section>
-
 
     <section class="kpis">
       <div class="wrap grid cards">
+        <!-- Keep KPIs simple and defensible -->
         <div class="kpi">
           <div class="num">$600m+</div>
           <div class="small">Revenue underpinned by partner ecosystem</div>
@@ -176,9 +192,9 @@
           <p>NEUROPAC is built on intelligent connections — linking technology, finance and procurement with the strength of a pack. We bring disciplines together, acting as one, to solve complex challenges with clarity and measurable impact.</p>
           <p>Our approach combines board-level rigour with hands-on delivery. Strategies are designed to land in the real world, with numbers that withstand CFO scrutiny and outcomes that create lasting value.</p>
           <p>London-based, NEUROPAC undertakes projects across the UK and internationally. Chartered credentials across IT, engineering and accounting underpin a pragmatic, trusted style of working — intelligent connections, strong as a pack, expertise acting as one.</p>
-          
         </div>
         <div class="card">
+          <!-- Short cred list; expand later if needed -->
           <ul style="margin:0;padding-left:18px">
             <li>• FIET • FCIPS • CITP • MBA (Cambridge Judge)</li>
             <li>• Microsoft Security specialisations</li>
@@ -200,28 +216,38 @@
       </div>
     </section>
   </main>
-    <footer id="site-footer"
+
+  <!-- Fixed footer (matches header style). JS below ensures content never hides behind it -->
+  <footer id="site-footer"
     style="position:fixed;bottom:0;left:0;width:100%;
           background:rgba(255,255,255,.85);
           backdrop-filter:saturate(180%) blur(8px);
           border-top:1px solid #e5e7eb;padding:8px 0;z-index:1000;">
     <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:nowrap">
       <div class="brand">
+        <!-- Footer hex set deliberately large for identity; adjust here if needed -->
         <img src="images/hex.png" alt="NEUROPAC hex logo" style="height:80px">
       </div>
-      <div class="small" style="white-space:nowrap;">© <span id="year"></span> NEUROPAC. All rights reserved.</div>
       <div class="small" style="white-space:nowrap;">
-        <a href="#" style="color:inherit;text-decoration:underline">Privacy</a> · 
+        © <span id="year"></span> NEUROPAC. All rights reserved.
+      </div>
+      <div class="small" style="white-space:nowrap;">
+        <a href="#" style="color:inherit;text-decoration:underline">Privacy</a> ·
         <a href="#" style="color:inherit;text-decoration:underline">Terms</a>
       </div>
     </div>
   </footer>
 
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-</script>
   <script>
+    // Year stamp
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Ensure the main area always leaves room for the fixed footer
+    const footer = document.getElementById("site-footer");
+    const mainEl = document.querySelector("main");
+    function padForFooter() { mainEl.style.paddingBottom = footer.offsetHeight + "px"; }
+    padForFooter();                      // on load
+    window.addEventListener("resize", padForFooter); // on resize
   </script>
 </body>
 </html>
