@@ -201,21 +201,21 @@
     </section>
   </main>
     <footer id="site-footer"
-      style="position:fixed;bottom:0;left:0;width:100%;
-            background:rgba(255,255,255,.85);
-            backdrop-filter:saturate(180%) blur(8px);
-            border-top:1px solid #e5e7eb;padding:16px 0;z-index:1000;">
-      <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
-        <div class="brand">
-          <img src="images/hex.png" alt="NEUROPAC hex logo" style="height:80px">
-        </div>
-        <div class="small">© <span id="year"></span> NEUROPAC. All rights reserved.</div>
-        <div class="small">
-          <a href="#" style="color:inherit;text-decoration:underline">Privacy</a> · 
-          <a href="#" style="color:inherit;text-decoration:underline">Terms</a>
-        </div>
+    style="position:fixed;bottom:0;left:0;width:100%;
+          background:rgba(255,255,255,.85);
+          backdrop-filter:saturate(180%) blur(8px);
+          border-top:1px solid #e5e7eb;padding:8px 0;z-index:1000;">
+    <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:nowrap">
+      <div class="brand">
+        <img src="images/hex.png" alt="NEUROPAC hex logo" style="height:80px">
       </div>
-    </footer>
+      <div class="small" style="white-space:nowrap;">© <span id="year"></span> NEUROPAC. All rights reserved.</div>
+      <div class="small" style="white-space:nowrap;">
+        <a href="#" style="color:inherit;text-decoration:underline">Privacy</a> · 
+        <a href="#" style="color:inherit;text-decoration:underline">Terms</a>
+      </div>
+    </div>
+  </footer>
 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
