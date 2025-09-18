@@ -127,3 +127,21 @@ a{color:var(--primary)}
   .home .hero{padding:40px 0 16px}
   .legal-line{font-size:12px}
 }
+/* Desktop+: put footer items on one centered row, legal line below */
+@media (min-width: 960px){
+  #site-footer .wrap{
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    text-align: center;
+  }
+  #site-footer .wrap > *{
+    flex: 0 0 auto;           /* keep logo, ©, links on the same row */
+  }
+  .legal-line{
+    flex-basis: 100%;         /* push legal line onto its own line below */
+    margin-top: 2px;
+  }
+}
