@@ -12,11 +12,16 @@
 
   <!-- Shared + homepage styles -->
   <link rel="stylesheet" href="style.css">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
 </head>
 <body class="home">
   <a href="#main" class="skip-link">Skip to content</a>
     <header>
-      <nav>
+      <nav aria-label="Main navigation">
         <a href="/" rel="home" class="brand">
           <img src="images/fullbanner_transparent.png" alt="NEUROPAC logo">
         </a>
@@ -34,7 +39,7 @@
     </header>
 
 
-  <main id="main">
+  <main id="main" tabindex="-1">
     <section class="hero">
       <div class="wrap">
         <h1>Creating value through intelligent connections</h1>
@@ -138,14 +143,16 @@
       <div class="wrap grid" style="grid-template-columns:1fr;gap:24px">
         <div>
           <h2>Working together</h2>
-          <p>e-mail to arrange a first conversation
-          <a href="mailto:team@neuropac.co.uk">team@neuropac.co.uk</a></p>
+          <p>
+            <strong>Email us to arrange a first conversation:</strong><br>
+            <a href="mailto:team@neuropac.co.uk">team@neuropac.co.uk</a>
+          </p>
         </div>
       </div>
     </section>
   </main>
 
-  <footer id="site-footer">
+  <footer id="site-footer" aria-label="Site footer">
     <div class="wrap">
       <div class="brand">
         <img src="images/hex.png" alt="NEUROPAC hex logo">
