@@ -44,6 +44,13 @@ img { max-width:100%; height:auto; display:block; }
 /* Container */
 .wrap { max-width:1000px; margin:0 auto; padding:24px; }
 
+/* Make page content line up with the header banner */
+main {
+  max-width: 1000px;   /* same as nav/wrap */
+  margin: 0 auto;
+  padding: 24px;       /* matches nav’s 24px side padding */
+}
+
 /* Header */
 header {
   border-bottom:1px solid #e5e7eb;
