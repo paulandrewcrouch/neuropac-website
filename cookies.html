@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>Cookies – NEUROPAC</title>
+  <title>Cookies Policy – NEUROPAC</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <!-- Google Fonts -->
@@ -10,41 +10,82 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Gelasio:wght@400;600;700&display=swap" rel="stylesheet">
 
-  <!-- Shared site-wide styles -->
   <link rel="stylesheet" href="style.css">
+  <style>
+    html { scroll-behavior: smooth; }
+    a { text-decoration: none; }
+  </style>
 </head>
-<body>
+<body class="home">
+  <a href="#main" class="skip-link">Skip to content</a>
   <header>
-    <nav>
-      <a href="/"><img src="images/fullbanner_transparent.png" alt="NEUROPAC logo"></a>
+    <nav aria-label="Main navigation">
+      <div class="brand">
+        <a href="/">
+          <img src="images/fullbanner.png" alt="NEUROPAC fullbanner logo">
+        </a>
+      </div>
+      <a href="mailto:team@neuropac.co.uk" class="contact-link">
+        <span class="contact-email">team@neuropac.co.uk</span>
+        <span class="contact-icon" aria-hidden="true">✉️</span>
+      </a>
     </nav>
   </header>
 
-  <main>
-    <h1>Cookies</h1>
-    <p><strong>Last updated:</strong> September 2025</p>
-
-    <p>This site currently uses only essential cookies necessary for the functioning of the website. No tracking or advertising cookies are in use.</p>
-
-    <h2>What are cookies?</h2>
-    <p>Cookies are small text files stored on your device by your web browser. They help websites function efficiently and provide usage information.</p>
-
-    <h2>Your choices</h2>
-    <p>You can manage or delete cookies via your browser settings. If we introduce non-essential cookies (such as analytics), we will provide a consent banner allowing you to opt in.</p>
+  <main id="main" tabindex="-1">
+    <div class="wrap">
+      <h1>Cookies Policy</h1>
+      <p><strong>Last updated:</strong> September 2025</p>
+      <!-- Add your cookies policy content here -->
+      <h2>What are cookies?</h2>
+      <p>
+        Cookies are small text files stored on your device by websites you visit. They help websites function, remember your preferences, and improve your experience.
+      </p>
+      <h2>How we use cookies</h2>
+      <p>
+        NEUROPAC uses cookies for essential site functionality and analytics. We do not use cookies to collect personal information or for advertising purposes.
+      </p>
+      <h2>Your choices</h2>
+      <p>
+        You can manage or disable cookies in your browser settings. Please note that disabling cookies may affect site functionality.
+      </p>
+      <h2>Contact</h2>
+      <p>
+        For questions about our cookies policy, contact: <a href="mailto:team@neuropac.co.uk">team@neuropac.co.uk</a>
+      </p>
+    </div>
   </main>
 
-  <footer>
+  <footer id="site-footer" aria-label="Site footer">
     <div class="wrap">
-      © <span id="year"></span> NEUROPAC · 
-      <a href="privacy_policy.html">Privacy</a> · 
-      <a href="terms_of_use.html">Terms</a> · 
-      <a href="cookies.html">Cookies</a> · 
-      <a href="accessibility.html">Accessibility</a>
+      <div class="brand">
+        <img src="images/hex.png" alt="NEUROPAC hex logo">
+      </div>
+      <div class="small">© <span id="year"></span> NEUROPAC. All rights reserved.</div>
+      <div class="small">
+        <a href="privacy_policy.html">Privacy Policy</a> ·
+        <a href="terms_of_use.html">Terms of Use</a> ·
+        <a href="cookies.html">Cookies</a> ·
+        <a href="accessibility.html">Accessibility</a>
+      </div>
+      <div class="small legal-line">
+        NEUROPAC LIMITED · Registered in England &amp; Wales No. 12345678 · Registered office: 71-75 Shelton Street, Covent Garden, London, WC2H 9JQ · VAT No. Pending
+      </div>
     </div>
   </footer>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+    const footer = document.getElementById('site-footer');
+    const mainEl = document.querySelector('main');
+    function padForFooter(){
+      const style = getComputedStyle(footer);
+      const isFixed = style.position === 'fixed';
+      const safeBottom = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--safe-bottom')) || 0;
+      mainEl.style.paddingBottom = isFixed ? (footer.offsetHeight + safeBottom) + 'px' : '0px';
+    }
+    padForFooter();
+    window.addEventListener('resize', padForFooter);
   </script>
 </body>
 </html>
