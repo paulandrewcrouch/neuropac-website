@@ -70,6 +70,24 @@ nav{
   white-space:nowrap;              /* keep email on one line */
   position:relative;
 }
+.contact-link .contact-icon {
+  display: none;
+  font-size: 1.2em;
+  vertical-align: middle;
+}
+
+.contact-link .contact-email {
+  display: inline;
+}
+
+@media (max-width: 600px) {
+  .contact-link .contact-email {
+    display: none;
+  }
+  .contact-link .contact-icon {
+    display: inline;
+  }
+}
 
 /* ===== Headings + text ===== */
 h1,h2,h3,h4{color:var(--primary);margin:0 0 12px}
