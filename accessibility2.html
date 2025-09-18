@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>NEUROPAC — Intelligent Connections</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gelasio:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Shared + homepage styles -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="homepage.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/">
+        <img src="images/fullbanner_transparent.png"
+             alt="NEUROPAC logo"
+             width="800" height="160"
+             decoding="async" fetchpriority="high">
+      </a>
+    </nav>
+  </header>
+
+  <main>
+
+  </main>
+
+  <footer id="site-footer">
+    <div class="wrap">
+      <div class="brand">
+        <img src="images/hex.png" alt="NEUROPAC hex logo">
+      </div>
+      <div class="small">© <span id="year"></span> NEUROPAC. All rights reserved.</div>
+      <div class="small">
+        <a href="privacy_policy.html">Privacy Policy</a> ·
+        <a href="terms_of_use.html">Terms of Use</a> ·
+        <a href="cookies.html">Cookies</a> ·
+        <a href="accessibility.html">Accessibility</a>
+      </div>
+      <div class="small legal-line">
+        NEUROPAC LIMITED · Registered in England &amp; Wales No. 12345678 · Registered office: 71-75 Shelton Street, Covent Garden, London, WC2H 9JQ · VAT No. Pending
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // pad main content for fixed footer on desktop
+    const footer = document.getElementById('site-footer');
+    const mainEl = document.querySelector('main');
+    function padForFooter(){
+      const style = getComputedStyle(footer);
+      const isFixed = style.position === 'fixed';
+      const safeBottom = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--safe-bottom')) || 0;
+      mainEl.style.paddingBottom = isFixed ? (footer.offsetHeight + safeBottom) + 'px' : '0px';
+    }
+    padForFooter();
+    window.addEventListener('resize', padForFooter);
+  </script>
+</body>
+</html>
