@@ -145,3 +145,9 @@ a{color:var(--primary)}
     margin-top: 2px;
   }
 }
+.contact-link {
+  float: right;
+  font-weight: 500;
+  color: #55085E;
+  text-decoration: none;
+}
