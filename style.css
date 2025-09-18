@@ -52,21 +52,21 @@ main {
 }
 
 /* Header */
-header {
+header{
+  position:sticky; top:0;
+  background:rgba(255,255,255,.85);
+  -webkit-backdrop-filter:saturate(180%) blur(8px);
+  backdrop-filter:saturate(180%) blur(8px);
   border-bottom:1px solid #e5e7eb;
-  background:#fff;
   padding-top:var(--safe-top);
 }
-nav {
-  max-width:1000px;
-  margin:0 auto;
-  padding:16px 24px;
-  display:flex;
-  align-items:center;
-  justify-content:flex-start;   /* logo aligned left everywhere */
-  gap:12px;
-  min-height:64px;              /* consistent nav height */
+nav{
+  max-width:1000px; margin:0 auto; padding:16px 24px;
+  display:flex; align-items:center; gap:12px;
+  min-height:64px;
 }
+nav img{height:80px;width:auto;display:block}
+
 /* Catch both homepage .brand img and policy nav>a>img */
 .brand { display:flex; align-items:center; gap:12px; }
 .brand img,
@@ -84,14 +84,22 @@ p, li { text-align:justify; text-justify:inter-word; hyphens:auto; }
 a { color:var(--primary); }
 
 /* Footer */
-footer { border-top:1px solid #e5e7eb; margin-top:32px; }
-footer .wrap {
-  max-width:1000px;
-  margin:0 auto;
-  padding:12px 24px;
-  font-size:12px;
-  color:#374151;
-  text-align:center;
+#site-footer{
+  position:fixed; bottom:0; left:0; width:100%;
+  background:rgba(255,255,255,.85);
+  -webkit-backdrop-filter:saturate(180%) blur(8px);
+  backdrop-filter:saturate(180%) blur(8px);
+  border-top:1px solid #e5e7eb; padding:6px 0; z-index:1000;
+  font-size:12px; color:#374151;
+}
+#site-footer .wrap{
+  display:flex; flex-direction:column; align-items:center;
+  justify-content:center; gap:6px; text-align:center;
+}
+#site-footer .brand img{ height:36px }
+@media (max-width:480px){
+  #site-footer{ position:static !important }
+  #site-footer .brand{ display:none }
 }
 
 /* Lock footer text size on iPhone */
