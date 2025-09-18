@@ -181,3 +181,12 @@ a{color:var(--primary)}
     text-indent:0; display:flex; align-items:center; justify-content:center;
   }
 }
+
+.contact p {
+  font-family: inherit; /* Ensures it matches other text */
+}
+
+.contact a {
+  text-decoration: none; /* Removes underline from email link */
+  color: initial;        /* Uses browser default color (blue/purple for visited) */
+}
