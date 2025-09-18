@@ -47,10 +47,24 @@ header{
   border-bottom:1px solid #e5e7eb;
   padding-top:var(--safe-top);
 }
-nav{
-  max-width:1000px; margin:0 auto; padding:16px 24px;
-  display:flex; align-items:center; gap:12px;
-  min-height:64px;
+nav {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* 👈 pushes first item left, last item right */
+  min-height: 64px;
+}
+
+.contact-link {
+  font-weight: 500;
+  color: #55085E;
+  text-decoration: none;
+}
+
+.contact-link:hover {
+  text-decoration: underline;
 }
 .brand{display:flex;align-items:center;gap:12px}
 .brand img, nav > a > img{height:80px;width:auto;display:block}
