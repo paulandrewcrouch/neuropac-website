@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>NEUROPAC — Intelligent Connections</title>
   <meta name="description" content="NEUROPAC — Pragmatic, board-level delivery across technology, finance and security." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -10,55 +10,42 @@
   <link href="https://fonts.googleapis.com/css2?family=Gelasio:wght@400;600;700&display=swap" rel="stylesheet">
 
   <style>
-    :root {
-      --primary:#55085E;
-      --accent:#8B5FBF;
-      --light:#F7F2FB;
-      --text:#1f2937;
-      --muted:#6b7280;
+    :root{
+      --primary:#55085E; --accent:#8B5FBF; --light:#F7F2FB; --text:#1f2937; --muted:#6b7280;
+      /* iOS safe areas */
+      --safe-top: env(safe-area-inset-top); 
+      --safe-bottom: env(safe-area-inset-bottom);
     }
     *{box-sizing:border-box}
     html,body{height:100%}
-    body {
-      margin:0;
-      font-family:"Gelasio", serif;
-      color:var(--text);
-      background:white;
-      line-height:1.6;
-      position:relative; /* keep for the watermark layer */
+    body{
+      margin:0; font-family:"Gelasio", serif; color:var(--text); background:white; line-height:1.6; position:relative;
     }
 
-    /* Note to self: single hex watermark, subtle and centered */
+    /* Subtle centered watermark (toned down on small screens) */
     body::before{
-      content:"";
-      position:fixed;
-      inset:0;
-      background:url('images/hex.png') center/70vmin no-repeat;
-      opacity:.05;                /* tweak this if I want more/less presence */
-      pointer-events:none;
-      z-index:-1;                 /* must sit behind everything */
-      filter:grayscale(100%);     /* keeps it muted so content stays readable */
+      content:""; position:fixed; inset:0; background:url('images/hex.png') center/70vmin no-repeat;
+      opacity:.05; pointer-events:none; z-index:-1; filter:grayscale(100%);
     }
 
     .wrap{max-width:1000px;margin:0 auto;padding:24px}
 
-    /* Header uses same frosted look as footer */
+    /* Header: sticky with iOS-friendly blur & safe-top padding */
     header{
-      position:sticky;top:0;background:rgba(255,255,255,.85);
+      position:sticky; top:0; background:rgba(255,255,255,.85);
+      -webkit-backdrop-filter:saturate(180%) blur(8px);
       backdrop-filter:saturate(180%) blur(8px);
       border-bottom:1px solid #e5e7eb;
+      padding-top:var(--safe-top);
     }
-    nav{display:flex;align-items:center;justify-content:space-between;height:64px;gap:12px}
+    nav{display:flex;align-items:center;justify-content:space-between;min-height:64px;gap:12px}
     .brand{display:flex;align-items:center;gap:12px}
-    .brand img{height:40px;width:auto}
+    .brand img{height:56px;width:auto;display:block}
 
     .hero{
-      /* Gentle radial highlight behind hero text */
-      background: radial-gradient(1200px 420px at 50% -120px, var(--light), transparent);
-      padding:56px 0 24px;
-      text-align:center;
+      background:radial-gradient(1200px 420px at 50% -120px, var(--light), transparent);
+      padding:56px 0 24px; text-align:center;
     }
-    .hero .banner{height:48px;width:auto;margin-bottom:16px}
     h1{font-size:clamp(28px,4vw,44px);line-height:1.15;margin:12px 0 8px;color:var(--primary)}
     p.lead{max-width:800px;margin:0 auto 16px;color:#374151}
     .location-line{font-size:13px;color:var(--muted);margin-top:6px}
@@ -66,28 +53,46 @@
     .grid{display:grid;gap:16px}
     .services{padding:40px 0}
 
-    /* 3-up responsive cards; drops to 1–2 cols on small screens */
+    /* Cards grid */
     .cards{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
     .card{border:1px solid #e5e7eb;border-radius:16px;padding:16px;background:white}
-
-    /* Make the “Risk & Ethics” card span the full row of the grid */
     .card.full-width{grid-column:1 / -1}
-
-    /* KPI block kept in reserve (I’ve removed it for now) */
-    .kpis{padding:24px 0}
-    .kpi{border:1px solid #e5e7eb;border-radius:16px;padding:16px;background:linear-gradient(135deg, #fff, #fafafa)}
-    .kpi .num{font-size:28px;font-weight:800;color:var(--primary)}
 
     .about,.contact{padding:40px 0}
     .contact .info{display:flex;flex-direction:column;gap:8px;font-size:14px;color:#374151}
 
-    /* Footer is fixed; padding for it is handled by the script at the bottom */
+    /* Footer: fixed with safe-bottom padding and iOS blur */
     footer{border-top:1px solid #e5e7eb}
-    .small{font-size:12px;color:#6b7280}
 
-    a, button, input, textarea{outline-color:var(--primary)}
+    /* Buttons/links focus */
+    a,button,input,textarea{outline-color:var(--primary)}
+
+    /* ====== Mobile & tablet refinements ====== */
+    @media (max-width:900px){
+      .brand img{height:52px}
+      .wrap{padding:20px}
+      .hero{padding:48px 0 20px}
+    }
+    @media (max-width:680px){
+      .brand img{height:44px}
+      body::before{opacity:.035; background-size:90vmin}
+      .wrap{padding:16px}
+      nav{min-height:56px}
+      .small{white-space:normal}
+    }
     @media (max-width:480px){
-      /* Keep layout tidy on small screens; hero sizing already uses clamp() */
+      .hero{padding:40px 0 16px}
+      .brand img{height:40px}
+      /* Keep footer from crowding content on very small screens */
+      #site-footer .wrap{gap:12px}
+      #site-footer .brand img{height:36px}
+      /* On very small devices, let the footer scroll normally */
+      #site-footer{position:static !important}
+    }
+      .brand img{height:40px}
+      /* Keep footer from crowding content on very small screens */
+      #site-footer .wrap{gap:12px}
+      #site-footer .brand img{height:40px}
     }
   </style>
 </head>
@@ -96,10 +101,8 @@
     <div class="wrap">
       <nav>
         <div class="brand">
-          <!-- Full banner in header for stronger immediate branding -->
-          <img src="images/fullbanner_transparent.png" alt="NEUROPAC hex logo" style="height:80px">
+          <img src="images/fullbanner_transparent.png" alt="NEUROPAC hex logo" decoding="async" fetchpriority="high" />
         </div>
-        <!-- Top-right CTA intentionally removed -->
       </nav>
     </div>
   </header>
@@ -112,7 +115,6 @@
           NEUROPAC blends expertise across procurement, finance and alliances,
           utilising intelligent connections to create sustainable value and board-ready results.
         </p>
-        <!-- Practical availability line; understated on purpose -->
         <p class="location-line">📍 London HQ • UK coverage • International capability</p>
       </div>
     </section>
@@ -120,53 +122,48 @@
     <section id="services" class="services">
       <div class="wrap">
         <h2 style="color:var(--primary);margin:0 0 12px">Our expertise</h2>
-
-        <!-- Note: full-width card must live inside this grid to span properly -->
         <div class="grid cards">
-
           <div class="card">
-            <h3 style="margin:0 0 8px;color:var(--primary)">Procurement & Technology Sourcing</h3>
-              <p>
-                Intelligent sourcing looks beyond just price. We help organisations develop supplier strategies that balance 
-                cost, risk, and innovation, forming partnerships that create lasting value across every spending area.
-              </p>
-              
-              <p>Our expertise includes:</p>
-              <ul>
-                <li>Procurement strategy and complex contract negotiations</li>
-                <li>Dispute resolution and supplier investigations/remediation</li>
-                <li>CapEx and OpEx sourcing — from technology investments and infrastructure projects to routine services, labour and indirect costs</li>
-                <li>Should-cost modelling and whole-life value analysis to underpin decision making</li>
-              </ul>
-              
-              <p>
-                Whether establishing new supply ecosystems, renegotiating key contracts, or remediating underperforming 
-                suppliers, we combine commercial insight with governance discipline to unlock long-term value. 
-                The result: smarter purchasing, increased resilience, and procurement outcomes that withstand board-level scrutiny.
-              </p>
+            <h3 style="margin:0 0 8px;color:var(--primary)">Procurement &amp; Technology Sourcing</h3>
+            <p>
+              Intelligent sourcing looks beyond just price. We help organisations develop supplier strategies that balance 
+              cost, risk, and innovation, forming partnerships that create lasting value across every spending area.
+            </p>
+            <p>Our expertise includes:</p>
+            <ul>
+              <li>Procurement strategy and complex contract negotiations</li>
+              <li>Dispute resolution and supplier investigations/remediation</li>
+              <li>CapEx and OpEx sourcing — from technology investments and infrastructure projects to routine services, labour and indirect costs</li>
+              <li>Should-cost modelling and whole-life value analysis to underpin decision making</li>
+            </ul>
+            <p>
+              Whether establishing new supply ecosystems, renegotiating key contracts, or remediating underperforming 
+              suppliers, we combine commercial insight with governance discipline to unlock long-term value. 
+              The result: smarter purchasing, increased resilience, and procurement outcomes that withstand board-level scrutiny.
+            </p>
           </div>
 
           <div class="card">
-            <h3 style="margin:0 0 8px;color:var(--primary)">Commercial Finance & Cost Transformation</h3>
-              <p>
+            <h3 style="margin:0 0 8px;color:var(--primary)">Commercial Finance &amp; Cost Transformation</h3>
+            <p>
               Connecting numbers to strategy, we help organisations make confident, board-level investment decisions that create 
               sustainable value.
-              </p>
-              <p>
+            </p>
+            <p>
               Our expertise covers developing CapEx investment cases, conducting RoCE analyses, and managing the entire lifecycle 
               from procurement through asset utilisation to depreciation. We also bring rigour to managing OpEx daily — from labour and technology operations to vendor and service costs — ensuring organisations keep financial control while continuing to innovate.
-              </p>
-              <p>
+            </p>
+            <p>
               Whether securing multi-billion funding for next-generation networks, optimising energy use, or strengthening supplier 
               governance, we combine financial discipline with commercial pragmatism across both large-scale transformation and routine operations.
-              </p>
-              <p>
+            </p>
+            <p>
               The result: measurable savings, protected innovation, and benefits realisation that meet CFO and investor expectations.
-              </p>
+            </p>
           </div>
 
           <div class="card">
-            <h3 style="margin:0 0 8px;color:var(--primary)">Strategic Alliances & Partner Ecosystems</h3>
+            <h3 style="margin:0 0 8px;color:var(--primary)">Strategic Alliances &amp; Partner Ecosystems</h3>
             <p>
               Building intelligent connections between vendors, partners and clients. We enable MSSP readiness,
               co-sell motions and security alliances that turn fragmented technologies into trusted, scalable
@@ -174,9 +171,8 @@
             </p>
           </div>
 
-          <!-- Bedrock principle that underpins all three pillars -->
           <div class="card full-width">
-            <h3 style="margin:0 0 8px;color:var(--primary)">Risk & Ethics</h3>
+            <h3 style="margin:0 0 8px;color:var(--primary)">Risk &amp; Ethics</h3>
             <p>
               Risk and ethics are built into delivery. We help clients ensure integrity in numbers,
               transparency in relationships and accountability in execution. By embedding sustainability,
@@ -184,7 +180,6 @@
               also responsible, trusted and enduring.
             </p>
           </div>
-
         </div>
       </div>
     </section>
@@ -193,20 +188,20 @@
       <div class="wrap grid" style="grid-template-columns:1.5fr .8fr;align-items:start">
         <div>
           <h2 style="color:var(--primary);margin:0 0 12px">About NEUROPAC</h2>
-            <p>
-              Founded in 2022 and Incorporated in 2025, NEUROPAC is built on intelligent connections — linking technology, finance and procurement with the strength of a pack. 
-              By creating value through these connections, we unite disciplines to solve complex challenges with clarity, accountability and measurable impact.
-            </p>
-            
-            <p>
-              Our approach combines board-level rigour with hands-on delivery. Strategies are designed to succeed in the real world, 
-              with numbers that withstand CFO scrutiny and outcomes that create lasting value.
-            </p>
-            
-            <p>
-              Based in London, NEUROPAC delivers projects across the UK and internationally. Chartered credentials in IT, engineering 
-              and accounting underpin a pragmatic and trusted style of working — intelligent connections, strong as a pack, expertise acting as one.
-        </p>
+          <p>
+            Founded in 2022 and Incorporated in 2025, NEUROPAC is built on intelligent connections — linking technology, finance and procurement with the strength of a pack. 
+            By creating value through these connections, we unite disciplines to solve complex challenges with clarity, accountability and measurable impact.
+          </p>
+          <p>
+            Our approach combines board-level rigour with hands-on delivery. Strategies are designed to succeed in the real world, 
+            with numbers that withstand CFO scrutiny and outcomes that create lasting value.
+          </p>
+          <p>
+            Based in London, NEUROPAC delivers projects across the UK and internationally. Chartered credentials in IT, engineering 
+            and accounting underpin a pragmatic and trusted style of working — intelligent connections, strong as a pack, expertise acting as one.
+          </p>
+        </div>
+        <!-- You can add a portrait/logo/CTA column here later if desired -->
       </div>
     </section>
 
@@ -218,23 +213,19 @@
           <p>✉️ <a href="mailto:team@neuropac.co.uk">team@neuropac.co.uk</a></p>
         </div>
       </div>
-</section>
+    </section>
   </main>
 
-  <!-- Fixed footer (mirrors header frost). Script below ensures content never hides behind it -->
-  <footer id="site-footer"
-    style="position:fixed;bottom:0;left:0;width:100%;
-          background:rgba(255,255,255,.85);
-          backdrop-filter:saturate(180%) blur(8px);
-          border-top:1px solid #e5e7eb;padding:8px 0;z-index:1000;">
-    <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:nowrap">
+  <footer id="site-footer" style="position:fixed;bottom:0;left:0;width:100%;
+    background:rgba(255,255,255,.85);
+    -webkit-backdrop-filter:saturate(180%) blur(8px);
+    backdrop-filter:saturate(180%) blur(8px);
+    border-top:1px solid #e5e7eb;padding:8px 0;z-index:1000;">
+    <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap">
       <div class="brand">
-        <!-- Keeping the hex prominent here for identity; adjust height if needed -->
-        <img src="images/hex.png" alt="NEUROPAC hex logo" style="height:80px">
+        <img src="images/hex.png" alt="NEUROPAC hex logo" style="height:56px" decoding="async" />
       </div>
-      <div class="small" style="white-space:nowrap;">
-        © <span id="year"></span> NEUROPAC. All rights reserved.
-      </div>
+      <div class="small" style="white-space:nowrap;">© <span id="year"></span> NEUROPAC. All rights reserved.</div>
       <div class="small" style="white-space:nowrap;">
         <a href="#" style="color:inherit;text-decoration:underline">Privacy</a> ·
         <a href="#" style="color:inherit;text-decoration:underline">Terms</a>
@@ -243,15 +234,20 @@
   </footer>
 
   <script>
-    // Set the footer year automatically (no manual edits each year)
+    // Footer year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Ensure main content never hides behind the fixed footer
-    const footer = document.getElementById("site-footer");
-    const mainEl = document.querySelector("main");
-    function padForFooter() { mainEl.style.paddingBottom = footer.offsetHeight + "px"; }
-    padForFooter();                               // run on load
-    window.addEventListener("resize", padForFooter); // keep it correct on resize
+    // Pad main for fixed footer including iOS safe area
+    const footer = document.getElementById('site-footer');
+    const mainEl = document.querySelector('main');
+    function padForFooter(){
+      const style = getComputedStyle(footer);
+      const isFixed = style.position === 'fixed';
+      const safeBottom = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--safe-bottom')) || 0;
+      mainEl.style.paddingBottom = isFixed ? (footer.offsetHeight + safeBottom) + 'px' : '0px';
+    }
+    padForFooter();
+    window.addEventListener('resize', padForFooter);
   </script>
 </body>
 </html>
