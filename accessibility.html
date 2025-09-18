@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>NEUROPAC — Intelligent Connections</title>
+  <title>Accessibility Statement – NEUROPAC</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <!-- Google Fonts -->
@@ -12,19 +12,30 @@
 
   <!-- Shared + homepage styles -->
   <link rel="stylesheet" href="style.css">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
 </head>
-<body>
+<body class="home">
   <a href="#main" class="skip-link">Skip to content</a>
   <header>
-    <nav>
-      <a href="/" rel="home">
-        <img src="images/fullbanner_transparent.png" alt="NEUROPAC logo">
+    <nav aria-label="Main navigation">
+      <div class="brand">
+        <a href="/">
+          <img src="images/fullbanner.png" alt="NEUROPAC fullbanner logo">
+        </a>
+      </div>
+      <a href="mailto:team@neuropac.co.uk" class="contact-link">
+        <span class="contact-email">team@neuropac.co.uk</span>
+        <span class="contact-icon" aria-hidden="true">✉️</span>
       </a>
     </nav>
   </header>
 
-  <main id="main">
-   <div class="wrap">
+  <main id="main" tabindex="-1">
+    <div class="wrap">
       <h1>Accessibility Statement</h1>
       <p><strong>Last updated:</strong> September 2025</p>
   
@@ -85,7 +96,7 @@
     </div>
   </main>
 
-  <footer id="site-footer">
+  <footer id="site-footer" aria-label="Site footer">
     <div class="wrap">
       <div class="brand">
         <img src="images/hex.png" alt="NEUROPAC hex logo">
