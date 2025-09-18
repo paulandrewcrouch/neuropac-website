@@ -119,9 +119,13 @@ a{color:var(--primary)}
 /* ===== Homepage visuals ===== */
 .home .hero{
   background:radial-gradient(1200px 420px at 50% -120px, var(--light), transparent);
-  padding:56px 0 24px; text-align:center;
+  padding:40px 0 16px; /* Reduce top/bottom padding */
+  text-align:center;
 }
-.home h1{font-size:clamp(28px,4vw,44px)}
+.home h1{
+  font-size:clamp(28px,4vw,44px);
+  margin-bottom:8px; /* Reduce bottom margin */
+}
 .home .grid{display:grid;gap:16px}
 .home .cards{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
 .home .card{border:1px solid #e5e7eb;border-radius:16px;padding:16px;background:#fff}
