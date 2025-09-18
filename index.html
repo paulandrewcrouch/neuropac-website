@@ -2,113 +2,17 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>NEUROPAC — Intelligent Connections</title>
-  <meta name="description" content="NEUROPAC — Pragmatic, board-level delivery across technology, finance and security." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Gelasio:wght@400;600;700&display=swap" rel="stylesheet">
 
-  <style>
-    :root {
-      --primary:#55085E; --accent:#8B5FBF; --light:#F7F2FB; --text:#1f2937; --muted:#6b7280;
-      --safe-top: env(safe-area-inset-top); 
-      --safe-bottom: env(safe-area-inset-bottom);
-    }
-    * { box-sizing:border-box }
-    html,body { height:100%; overflow-x:hidden; }
-    body {
-      margin:0; font-family:"Gelasio", serif; color:var(--text); background:white; line-height:1.6; position:relative;
-    }
-
-    body::before {
-      content:""; position:fixed; inset:0; background:url('images/hex.png') center/70vmin no-repeat;
-      opacity:.05; pointer-events:none; z-index:-1; filter:grayscale(100%);
-    }
-
-    img { max-width:100%; height:auto; }
-
-    .wrap { max-width:1000px; margin:0 auto; padding:24px }
-
-    header {
-      position:sticky; top:0; background:rgba(255,255,255,.85);
-      -webkit-backdrop-filter:saturate(180%) blur(8px);
-      backdrop-filter:saturate(180%) blur(8px);
-      border-bottom:1px solid #e5e7eb;
-      padding-top:var(--safe-top);
-    }
-    nav { display:flex; align-items:center; justify-content:space-between; min-height:64px; gap:12px }
-    .brand { display:flex; align-items:center; gap:12px }
-    .brand img { height:80px; width:auto; display:block }
-
-    .hero {
-      background:radial-gradient(1200px 420px at 50% -120px, var(--light), transparent);
-      padding:56px 0 24px; text-align:center;
-    }
-    h1 { font-size:clamp(28px,4vw,44px); line-height:1.15; margin:12px 0 8px; color:var(--primary) }
-    p.lead {
-      max-width:800px;
-      margin:0 auto 16px;
-      color:#374151;
-      text-align:center; /* centre this one */
-    }
-    .location-line {
-      font-size:13px;
-      color:var(--muted);
-      margin-top:6px;
-      text-align:center; /* this is the fix */
-    }
-
-    .grid { display:grid; gap:16px }
-    .services { padding:40px 0 }
-
-    .cards { grid-template-columns:repeat(auto-fit,minmax(240px,1fr)) }
-    .card { border:1px solid #e5e7eb; border-radius:16px; padding:16px; background:white }
-    .card.full-width { grid-column:1 / -1 }
-
-    .about,.contact { padding:40px 0 }
-    .contact .info { display:flex; flex-direction:column; gap:8px; font-size:14px; color:#374151 }
-
-    footer { border-top:1px solid #e5e7eb }
-
-    a,button,input,textarea { outline-color:var(--primary) }
-
-    /* Justify only paragraphs and list items */
-    p, li {
-      text-align: justify;
-      text-justify: inter-word;
-      hyphens: auto;
-    }
-
-    @media (max-width:900px){
-      .wrap { padding:20px }
-      .hero { padding:48px 0 20px }
-    }
-    @media (max-width:680px){
-      body::before { opacity:.035; background-size:90vmin }
-      .wrap { padding:16px }
-      nav { min-height:56px }
-      .small { white-space:normal }
-    }
-    @media (max-width:480px){
-      .hero { padding:40px 0 16px }
-      .brand img { height:48px }
-      #site-footer .wrap { gap:12px }
-      #site-footer { position:static !important }
-
-      /* Center footer items and shrink legal text */
-      #site-footer .small { white-space:normal; text-align:center }
-      .legal-line {
-        white-space:normal;
-        line-height:1.4;
-        text-align:center;
-        font-size:12px;
-      }
-
-      /* Hide footer logo on phones */
-      #site-footer .brand { display:none }
-    }
-  </style>
+  <!-- Shared + homepage styles -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="homepage.css">
 </head>
 <body>
   <header>
