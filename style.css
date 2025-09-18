@@ -51,10 +51,13 @@ nav {
   max-width: 1000px;
   margin: 0 auto;
   padding: 16px 24px;
+}
+
+.nav-inner {
   display: flex;
+  justify-content: space-between; /* logo left, email right */
   align-items: center;
-  justify-content: space-between; /* 👈 pushes first item left, last item right */
-  min-height: 64px;
+  width: 100%;
 }
 
 .contact-link {
