@@ -123,3 +123,17 @@ p.lead { max-width:800px; margin:0 auto 16px; color:#374151; text-align:center; 
   .brand img,
   nav > a > img { height:56px; }
 }
+/* Skip link for accessibility */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+}
+.skip-link:focus {
+  left: 12px;
+  top: 12px;
+  background: #fff;
+  border: 2px solid var(--primary);
+  padding: 6px 10px;
+  z-index: 1001;
+}
