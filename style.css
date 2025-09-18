@@ -1,21 +1,21 @@
-/* ===== Core brand + layout shared everywhere ===== */
-:root {
+/* ===== Core brand + layout ===== */
+:root{
   --primary:#55085E;
   --accent:#8B5FBF;
   --light:#F7F2FB;
   --text:#1f2937;
   --muted:#6b7280;
-  --safe-top: env(safe-area-inset-top);
-  --safe-bottom: env(safe-area-inset-bottom);
+  --safe-top:env(safe-area-inset-top);
+  --safe-bottom:env(safe-area-inset-bottom);
 }
 
 /* Reset & scroll stability */
 *{box-sizing:border-box}
 html,body{height:100%;margin:0;overflow-x:hidden}
 html{
-  scrollbar-gutter:stable both-edges;   /* keep width constant */
-  overflow-y:scroll;                    /* reserve scrollbar space */
-  -webkit-text-size-adjust:100%;        /* prevent iOS enlarging text */
+  scrollbar-gutter:stable both-edges;
+  overflow-y:scroll;
+  -webkit-text-size-adjust:100%;
   text-size-adjust:100%;
 }
 
@@ -34,11 +34,10 @@ body::before{
 }
 img{max-width:100%;height:auto;display:block}
 
-/* Container + main width (aligns with header) */
-.wrap{max-width:1000px;margin:0 auto;padding:24px}
-main{max-width:1000px;margin:0 auto;padding:24px}
+/* Containers (align with header) */
+.wrap, main{max-width:1000px;margin:0 auto;padding:24px}
 
-/* Header (same on all pages) */
+/* ===== Header ===== */
 header{
   position:sticky; top:0;
   background:rgba(255,255,255,.85);
@@ -48,47 +47,38 @@ header{
   padding-top:var(--safe-top);
 }
 
-nav {
-  width: 100%;                 /* let nav span full width */
-  max-width: 1000px;           /* keep centered layout */
-  margin: 0 auto;
-  padding: 16px 24px;
-  display: flex;
-  align-items: center;         /* keeps items vertically aligned */
-  justify-content: space-between; /* pushes logo left, email right */
-  min-height: 64px;
-  flex-wrap: nowrap;           /* 👈 prevent the email dropping down */
-}
-
-.brand {
-  display: flex;
-  align-items: center;
-}
-
-.brand img {
-  height: 80px;
-  width: auto;
-  display: block;
-}
-
-.contact-link {
-  font-weight: 500;
-  color: #55085E;
-  text-decoration: none;
-  white-space: nowrap;         /* 👈 keeps email all on one line */
+nav{
+  width:100%;
+  max-width:1000px;
+  margin:0 auto;
+  padding:16px 24px;
+  display:flex;
+  align-items:center;              /* middle align */
+  justify-content:space-between;   /* logo left, contact right */
+  min-height:64px;
+  flex-wrap:nowrap;                /* keep on one line */
 }
 
 .brand{display:flex;align-items:center;gap:12px}
-.brand img, nav > a > img{height:80px;width:auto;display:block}
+.brand img{height:80px;width:auto;display:block}
 
-/* Headings + text */
+/* Contact link (desktop text; mobile icon) */
+.contact-link{
+  font-weight:500;
+  color:var(--primary);
+  text-decoration:none;
+  white-space:nowrap;              /* keep email on one line */
+  position:relative;
+}
+
+/* ===== Headings + text ===== */
 h1,h2{color:var(--primary);margin:0 0 12px}
 h1{font-size:clamp(28px,4vw,40px)}
 h2{font-size:clamp(20px,3vw,28px);margin-top:24px}
 p,li{text-align:justify;text-justify:inter-word;hyphens:auto}
 a{color:var(--primary)}
 
-/* Footer (same on all pages; fixed on desktop, scrolls on phones) */
+/* ===== Footer ===== */
 #site-footer{
   position:fixed; bottom:0; left:0; width:100%;
   background:rgba(255,255,255,.85);
@@ -108,26 +98,12 @@ a{color:var(--primary)}
 /* Lock footer text size on iPhone */
 .small, .legal-line{font-size:12px;line-height:1.3}
 
-/* Phones: footer scrolls, hide footer logo */
-@media (max-width:480px){
-  #site-footer{position:static !important}
-  #site-footer .brand{display:none}
-  #site-footer .wrap{gap:12px}
-}
-
-/* Skip link for accessibility */
-.skip-link{position:absolute;left:-9999px;top:auto}
-.skip-link:focus{
-  left:12px; top:12px; background:#fff; border:2px solid var(--primary);
-  padding:6px 10px; z-index:1001;
-}
-
-/* ===== Homepage-only visuals (scoped) ===== */
+/* ===== Homepage visuals ===== */
 .home .hero{
   background:radial-gradient(1200px 420px at 50% -120px, var(--light), transparent);
   padding:56px 0 24px; text-align:center;
 }
-.home h1{font-size:clamp(28px,4vw,44px)}  /* homepage gets bigger h1 */
+.home h1{font-size:clamp(28px,4vw,44px)}
 .home .grid{display:grid;gap:16px}
 .home .cards{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
 .home .card{border:1px solid #e5e7eb;border-radius:16px;padding:16px;background:#fff}
@@ -138,42 +114,52 @@ a{color:var(--primary)}
 .home p.lead{max-width:800px;margin:0 auto 16px;color:#374151;text-align:center}
 .home .location-line{font-size:13px;color:var(--muted);margin-top:6px;text-align:center}
 
+/* ===== Accessibility ===== */
+.skip-link{position:absolute;left:-9999px;top:auto}
+.skip-link:focus{
+  left:12px; top:12px; background:#fff; border:2px solid var(--primary);
+  padding:6px 10px; z-index:1001;
+}
+
 /* ===== Responsive tweaks ===== */
 @media (max-width:900px){
   .home .hero{padding:48px 0 20px}
-  .wrap{padding:20px}
+  .wrap, main{padding:20px}
 }
 @media (max-width:680px){
   body::before{opacity:.035;background-size:90vmin}
-  .wrap{padding:16px}
-  .brand img, nav > a > img{height:64px}
+  .wrap, main{padding:16px}
+  .brand img{height:64px}
 }
 @media (max-width:480px){
-  .brand img, nav > a > img{height:56px}
+  .brand img{height:56px}
   .home .hero{padding:40px 0 16px}
   .legal-line{font-size:12px}
+  #site-footer{position:static !important}
+  #site-footer .brand{display:none}
+  #site-footer .wrap{gap:12px}
 }
-/* Desktop+: put footer items on one centered row, legal line below */
-@media (min-width: 960px){
+
+/* Desktop+: footer layout refinement */
+@media (min-width:960px){
   #site-footer .wrap{
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 12px;
-    text-align: center;
+    flex-direction:row; flex-wrap:wrap; justify-content:center; align-items:center;
+    gap:12px; text-align:center;
   }
-  #site-footer .wrap > *{
-    flex: 0 0 auto;           /* keep logo, ©, links on the same row */
-  }
-  .legal-line{
-    flex-basis: 100%;         /* push legal line onto its own line below */
-    margin-top: 2px;
-  }
+  #site-footer .wrap>*{flex:0 0 auto}
+  .legal-line{flex-basis:100%; margin-top:2px}
 }
-.contact-link {
-  float: right;
-  font-weight: 500;
-  color: #55085E;
-  text-decoration: none;
+
+/* ===== Mobile: swap email text for icon (keeps link + a11y) ===== */
+@media (max-width:600px){
+  .contact-link{
+    font-size:24px;                /* size for the icon */
+    text-indent:-9999px;           /* hide the text visually */
+    overflow:hidden;
+  }
+  .contact-link::before{
+    content:"✉️";                  /* envelope icon */
+    position:absolute; inset:0;
+    text-indent:0; display:flex; align-items:center; justify-content:center;
+  }
 }
