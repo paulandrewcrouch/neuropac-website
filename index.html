@@ -12,7 +12,6 @@
   <style>
     :root{
       --primary:#55085E; --accent:#8B5FBF; --light:#F7F2FB; --text:#1f2937; --muted:#6b7280;
-      /* iOS safe areas */
       --safe-top: env(safe-area-inset-top); 
       --safe-bottom: env(safe-area-inset-bottom);
     }
@@ -22,7 +21,6 @@
       margin:0; font-family:"Gelasio", serif; color:var(--text); background:white; line-height:1.6; position:relative;
     }
 
-    /* Subtle centered watermark (toned down on small screens) */
     body::before{
       content:""; position:fixed; inset:0; background:url('images/hex.png') center/70vmin no-repeat;
       opacity:.05; pointer-events:none; z-index:-1; filter:grayscale(100%);
@@ -30,7 +28,6 @@
 
     .wrap{max-width:1000px;margin:0 auto;padding:24px}
 
-    /* Header: sticky with iOS-friendly blur & safe-top padding */
     header{
       position:sticky; top:0; background:rgba(255,255,255,.85);
       -webkit-backdrop-filter:saturate(180%) blur(8px);
@@ -40,7 +37,7 @@
     }
     nav{display:flex;align-items:center;justify-content:space-between;min-height:64px;gap:12px}
     .brand{display:flex;align-items:center;gap:12px}
-    .brand img{height:56px;width:auto;display:block}
+    .brand img{height:80px;width:auto;display:block}
 
     .hero{
       background:radial-gradient(1200px 420px at 50% -120px, var(--light), transparent);
@@ -53,7 +50,6 @@
     .grid{display:grid;gap:16px}
     .services{padding:40px 0}
 
-    /* Cards grid */
     .cards{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
     .card{border:1px solid #e5e7eb;border-radius:16px;padding:16px;background:white}
     .card.full-width{grid-column:1 / -1}
@@ -61,20 +57,15 @@
     .about,.contact{padding:40px 0}
     .contact .info{display:flex;flex-direction:column;gap:8px;font-size:14px;color:#374151}
 
-    /* Footer: fixed with safe-bottom padding and iOS blur */
     footer{border-top:1px solid #e5e7eb}
 
-    /* Buttons/links focus */
     a,button,input,textarea{outline-color:var(--primary)}
 
-    /* ====== Mobile & tablet refinements ====== */
     @media (max-width:900px){
-      .brand img{height:52px}
       .wrap{padding:20px}
       .hero{padding:48px 0 20px}
     }
     @media (max-width:680px){
-      .brand img{height:44px}
       body::before{opacity:.035; background-size:90vmin}
       .wrap{padding:16px}
       nav{min-height:56px}
@@ -82,17 +73,10 @@
     }
     @media (max-width:480px){
       .hero{padding:40px 0 16px}
-      .brand img{height:40px}
-      /* Keep footer from crowding content on very small screens */
+      .brand img{height:48px}
       #site-footer .wrap{gap:12px}
       #site-footer .brand img{height:36px}
-      /* On very small devices, let the footer scroll normally */
       #site-footer{position:static !important}
-    }
-      .brand img{height:40px}
-      /* Keep footer from crowding content on very small screens */
-      #site-footer .wrap{gap:12px}
-      #site-footer .brand img{height:40px}
     }
   </style>
 </head>
@@ -201,7 +185,6 @@
             and accounting underpin a pragmatic and trusted style of working — intelligent connections, strong as a pack, expertise acting as one.
           </p>
         </div>
-        <!-- You can add a portrait/logo/CTA column here later if desired -->
       </div>
     </section>
 
@@ -230,14 +213,17 @@
         <a href="#" style="color:inherit;text-decoration:underline">Privacy</a> ·
         <a href="#" style="color:inherit;text-decoration:underline">Terms</a>
       </div>
+      <div class="small" style="white-space:normal;flex:1 1 100%;margin-top:6px">
+        NEUROPAC LIMITED, registered in England &amp; Wales No. 12345678.<br>
+        Registered office: 71-75 Shelton Street, Covent Garden, London, WC2H 9JQ.<br>
+        VAT No. Pending.
+      </div>
     </div>
   </footer>
 
   <script>
-    // Footer year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Pad main for fixed footer including iOS safe area
     const footer = document.getElementById('site-footer');
     const mainEl = document.querySelector('main');
     function padForFooter(){
