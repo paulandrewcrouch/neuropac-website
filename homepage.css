@@ -26,7 +26,7 @@ h1{font-size:clamp(28px,4vw,44px)}
 .about,.contact{padding:40px 0}
 .contact .info{display:flex;flex-direction:column;gap:8px;font-size:14px;color:#374151}
 
-/* Footer (fixed on desktop; policies stay non-fixed) */
+/* ===== Footer (homepage only: fixed on desktop, centered layout) ===== */
 #site-footer{
   position:fixed; bottom:0; left:0; width:100%;
   background:rgba(255,255,255,.85);
@@ -35,27 +35,59 @@ h1{font-size:clamp(28px,4vw,44px)}
   border-top:1px solid #e5e7eb; padding:6px 0; z-index:1000;
   font-size:12px; color:#374151;
 }
-#site-footer .wrap{
-  display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;
-}
-#site-footer .brand img{height:36px}
 
-/* Mobile adjustments (phones/tablets) */
+/* Center everything and allow wrapping */
+#site-footer .wrap{
+  display:flex;
+  flex-direction:column;      /* stack by default */
+  align-items:center;
+  justify-content:center;
+  gap:6px;
+  text-align:center;
+}
+
+/* Ensure long lines wrap safely */
+#site-footer .small,
+.legal-line{
+  white-space:normal;
+  word-break:break-word;
+}
+.legal-line{
+  line-height:1.4;
+  max-width:1000px;
+  padding:0 12px;
+}
+
+/* Footer logo size */
+#site-footer .brand img{ height:36px }
+
+/* Phones: footer scrolls, hide logo */
+@media (max-width:480px){
+  #site-footer{ position:static !important }
+  #site-footer .brand{ display:none }
+  #site-footer .wrap{ gap:12px }
+}
+
+/* Desktop+: put footer items on one centered row */
+@media (min-width:960px){
+  #site-footer .wrap{
+    flex-direction:row;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:12px;
+  }
+}
+
+/* ===== Mobile adjustments (phones/tablets) ===== */
 @media (max-width:900px){
   .hero{padding:48px 0 20px}
   .wrap{padding:20px}
 }
 @media (max-width:680px){
   body::before{opacity:.035;background-size:90vmin}
-  /* removed: nav{min-height:56px} to keep header consistent with style.css */
   .small{white-space:normal}
 }
 @media (max-width:480px){
   .hero{padding:40px 0 16px}
-  /* removed: .brand img{height:48px} to keep 56px from style.css */
-  #site-footer{position:static !important}          /* footer scrolls on phones */
-  #site-footer .wrap{gap:12px}
-  #site-footer .small{white-space:normal;text-align:center}
-  .legal-line{white-space:normal;line-height:1.4;text-align:center;font-size:12px}
-  #site-footer .brand{display:none}                 /* hide footer logo on phones */
+  .legal-line{font-size:12px}
 }
