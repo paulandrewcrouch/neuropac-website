@@ -187,6 +187,6 @@ a{color:var(--primary)}
 }
 
 .contact a {
-  text-decoration: none; /* Removes underline from email link */
-  color: initial;        /* Uses browser default color (blue/purple for visited) */
+  text-decoration: none;      /* Removes underline */
+  color: var(--primary);      /* Uses your brand purple */
 }
