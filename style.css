@@ -194,3 +194,35 @@ a{color:var(--primary)}
   text-decoration: none;      /* Removes underline */
   color: var(--primary);      /* Uses your brand purple */
 }
+.wrap table { 
+  width: 100%; 
+  border-collapse: collapse; 
+  margin: 1rem 0; 
+}
+
+.wrap th, 
+.wrap td { 
+  border: 1px solid #000;   /* solid black borders */
+  padding: .5rem .75rem; 
+  text-align: left; 
+  vertical-align: top; 
+}
+
+.wrap th { 
+  background: #f3f4f6; 
+  font-weight: 600; 
+}
+
+.purple-link { 
+  color: #55085E; 
+  font-weight: 600; 
+}
+
+ul.rights-list { 
+  margin: 0.75rem 0; 
+  padding-left: 1.2rem; 
+}
+
+ul.rights-list li { 
+  margin-bottom: 0.5rem; 
+}
