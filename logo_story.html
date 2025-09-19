@@ -74,26 +74,30 @@
   
       <!-- Hex Diagram -->
       <div class="hex-diagram-container">
-        <svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg" class="hex-diagram">
-          <!-- Perfect regular hexagon -->
-          <polygon 
-            points="300,80 520,200 520,400 300,520 80,400 80,200" 
-            fill="none" 
-            stroke="#55085E" 
-            stroke-width="16"/>
-          
-          <!-- Central text -->
-          <text x="300" y="310" text-anchor="middle" font-size="30" fill="#55085E" font-weight="bold">
+        <svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg"
+             class="hex-diagram" preserveAspectRatio="xMidYMid meet">
+          <!-- Perfect regular hexagon (pointy-top) -->
+          <!-- Center (300,300), radius R=200 -->
+          <!-- Points: (300,100) (473.205,200) (473.205,400) (300,500) (126.795,400) (126.795,200) -->
+          <polygon
+            points="300,100 473.205,200 473.205,400 300,500 126.795,400 126.795,200"
+            fill="none"
+            stroke="#55085E"
+            stroke-width="16"
+            vector-effect="non-scaling-stroke" />
+        
+          <!-- Title in centre -->
+          <text x="300" y="315" text-anchor="middle" font-size="30" fill="#55085E" font-weight="bold">
             NEUROPAC
           </text>
-          
-          <!-- Labels (pushed further out for padding) -->
-          <text x="300" y="50" text-anchor="middle" font-size="20" fill="#55085E">Technology</text>
-          <text x="560" y="210" text-anchor="start" font-size="20" fill="#55085E">Finance</text>
-          <text x="560" y="390" text-anchor="start" font-size="20" fill="#55085E">Procurement</text>
-          <text x="300" y="580" text-anchor="middle" font-size="20" fill="#55085E">Leadership</text>
-          <text x="40" y="390" text-anchor="end" font-size="20" fill="#55085E">Ethics</text>
-          <text x="40" y="210" text-anchor="end" font-size="20" fill="#55085E">Growth</text>
+        
+          <!-- Labels: pushed well inside the roomy viewBox to avoid clipping -->
+          <text x="300" y="60"  text-anchor="middle" font-size="20" fill="#55085E">Technology</text>
+          <text x="560" y="205" text-anchor="start"  font-size="20" fill="#55085E">Finance</text>
+          <text x="560" y="395" text-anchor="start"  font-size="20" fill="#55085E">Procurement</text>
+          <text x="300" y="585" text-anchor="middle" font-size="20" fill="#55085E">Leadership</text>
+          <text x="40"  y="395" text-anchor="end"    font-size="20" fill="#55085E">Ethics</text>
+          <text x="40"  y="205" text-anchor="end"    font-size="20" fill="#55085E">Growth</text>
         </svg>
       </div>
   
