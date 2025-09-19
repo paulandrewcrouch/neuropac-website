@@ -257,8 +257,7 @@ ul.rights-list li {
 .hex-diagram {
   display: block;
   margin: 2rem auto;
-  max-width: 480px;   /* adjust as you like */
-  width: 100%;
+  max-width: 100%;   /* scales down on mobiles */
   height: auto;
-  overflow: visible;  /* ensure labels are not cropped by the SVG box */
+  overflow: visible; /* prevents labels from being clipped */
 }
