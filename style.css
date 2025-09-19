@@ -227,3 +227,13 @@ ul.rights-list {
 ul.rights-list li { 
   margin-bottom: 0.5rem; 
 }
+.hidden-logo-story img {
+  width: 20px;              /* small size */
+  opacity: 0.6;             /* subtle look */
+  transition: opacity 0.2s ease-in-out;
+  cursor: pointer;          /* show it's clickable */
+}
+
+.hidden-logo-story img:hover {
+  opacity: 1;               /* highlight when hovered */
+}
