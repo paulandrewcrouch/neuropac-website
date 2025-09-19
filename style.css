@@ -237,3 +237,12 @@ ul.rights-list li {
 .hidden-logo-story img:hover {
   opacity: 1;               /* highlight when hovered */
 }
+.logo-hero {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.big-hex {
+  width: 120px;   /* adjust size if you want it bigger */
+  opacity: 0.9;
+}
