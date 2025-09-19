@@ -248,3 +248,13 @@ ul.rights-list li {
   width: 240px;   /* adjust size if you want it bigger */
   opacity: 0.9;
 }
+.hex-diagram-container {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.hex-diagram {
+  max-width: 400px;
+  width: 100%;
+  height: auto;
+}
