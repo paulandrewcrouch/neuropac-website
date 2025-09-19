@@ -240,13 +240,14 @@ ul.rights-list li {
   opacity: 1;
 }
 .logo-hero {
-  text-align: center;
+  text-align: center;   /* centres inline content */
   margin: 2rem 0;
 }
 
 .big-hex {
-  width: 240px;   /* adjust size if you want it bigger */
-  opacity: 0.9;
+  display: inline-block;  /* makes the image respect text-align */
+  width: 150px;           /* adjust size as needed */
+  height: auto;
 }
 .hex-diagram-container {
   text-align: center;
