@@ -257,9 +257,10 @@ ul.rights-list li {
 .hex-diagram {
   display: block;
   margin: 2rem auto;
-  max-width: 100%;   /* shrink on mobiles */
+  width: 100%;
+  max-width: 420px;  /* adjust to taste: smaller cap for desktop */
   height: auto;
-  overflow: visible; /* keep labels visible */
+  overflow: visible; /* stop clipping */
 }
 
 /* Optional: tiny screens—shave label size slightly */
