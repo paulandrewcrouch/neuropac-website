@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Logo Story – NEUROPAC</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gelasio:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <style>
+    html { scroll-behavior: smooth; }
+    a { text-decoration: none; }
+  </style>
+</head>
+<body class="home">
+  <a href="#main" class="skip-link">Skip to content</a>
+  <header>
+    <nav aria-label="Main navigation">
+      <div class="brand">
+        <a href="/">
+          <img src="images/fullbanner.png" alt="NEUROPAC fullbanner logo">
+        </a>
+      </div>
+      <a href="mailto:team@neuropac.co.uk" class="contact-link">
+        <span class="contact-email">team@neuropac.co.uk</span>
+        <span class="contact-icon" aria-hidden="true">✉️</span>
+      </a>
+    </nav>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <div class="wrap">
+      <h1>Our Logo Story</h1>
+      <div class="logo-hero">
+        <img src="images/hex.png" alt="NEUROPAC hexagon logo" class="big-hex">
+      </div>
+  
+      <h2>Hexagon – the central symbol of the NEUROPAC identity</h2>
+      <p>
+        Represents <strong>efficiency and engineering precision</strong>, as the hexagon is nature’s most efficient
+        structure (beehives, carbon molecules, etc.).
+      </p>
+      <p>
+        Symbolises <strong>strength and stability</strong>, with all six sides equally balanced, reflecting NEUROPAC’s
+        balanced blend of technology, finance, and procurement.
+      </p>
+      <p>
+        Serves as the <strong>core hub</strong> of the brand — strong on its own, but also designed to connect outward.
+      </p>
+  
+      <h2>Neuron Motif – connections radiating from the hexagon</h2>
+      <p>
+        Represents <strong>intelligence, connectivity, and networks</strong>.
+      </p>
+      <p>
+        Suggests both <strong>digital pathways</strong> (IT, cyber) and <strong>neural pathways</strong> (human
+        decision-making).
+      </p>
+      <p>
+        Together with the hexagon, it conveys a sense of <strong>structured intelligence</strong>.
+      </p>
+  
+      <h2>Combination</h2>
+      <p>
+        The logo is both <strong>technical and organic</strong>: the hexagon provides order, while the neuron elements
+        give energy and dynamism.
+      </p>
+    </div>
+  </main>
+
+  <footer id="site-footer" aria-label="Site footer">
+    <div class="wrap">
+      <div class="brand">
+        <img src="images/hex.png" alt="NEUROPAC hex logo">
+      </div>
+      <div class="small">© <span id="year"></span> NEUROPAC. All rights reserved.</div>
+      <div class="small">
+        <a href="privacy_policy.html">Privacy Policy</a> ·
+        <a href="terms_of_use.html">Terms of Use</a> ·
+        <a href="cookies.html">Cookies</a> ·
+        <a href="accessibility.html">Accessibility</a>
+      </div>
+      <div class="small legal-line">
+        NEUROPAC LIMITED · Registered in England &amp; Wales No. 16673302 · Registered office: 71-75 Shelton Street, Covent Garden, London, WC2H 9JQ · VAT No. Pending
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const footer = document.getElementById('site-footer');
+    const mainEl = document.querySelector('main');
+    function padForFooter(){
+      const style = getComputedStyle(footer);
+      const isFixed = style.position === 'fixed';
+      const safeBottom = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--safe-bottom')) || 0;
+      mainEl.style.paddingBottom = isFixed ? (footer.offsetHeight + safeBottom) + 'px' : '0px';
+    }
+    padForFooter();
+    window.addEventListener('resize', padForFooter);
+  </script>
+</body>
+</html>
