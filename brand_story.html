@@ -74,38 +74,28 @@
   
       <!-- Hex Diagram -->
       <div class="hex-diagram-container">
-        <svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg"
+        <svg viewBox="-40 -40 680 680" xmlns="http://www.w3.org/2000/svg"
              class="hex-diagram" preserveAspectRatio="xMidYMid meet">
-          <!-- Perfect regular hexagon (pointy-top) -->
-          <!-- Center (300,300), radius R=200 -->
+          <!-- Perfect regular hexagon (pointy-top), centre (300,300), R=200 -->
           <polygon
             points="300,100 473.205,200 473.205,400 300,500 126.795,400 126.795,200"
             fill="none"
             stroke="#55085E"
-            stroke-width="12"
+            stroke-width="10"
             vector-effect="non-scaling-stroke" />
         
           <!-- Title in centre -->
-          <text x="300" y="315" text-anchor="middle" font-size="30" fill="#55085E" font-weight="bold">
+          <text x="300" y="315" text-anchor="middle" font-size="34" fill="#55085E" font-weight="bold">
             NEUROPAC
           </text>
         
-          <!-- Labels (moved in from 560/40 to 530/70; top/bottom closer too) -->
-
-          <!-- Right-hand labels -->
-          <text x="530" y="205" text-anchor="start"  font-size="24" fill="#55085E">Finance</text>
-          <text x="530" y="395" text-anchor="start"  font-size="24" fill="#55085E">Procurement</text>
-          
-          <!-- Left-hand labels -->
-          <text x="70"  y="395" text-anchor="end"    font-size="24" fill="#55085E">Ethics</text>
-          <text x="70"  y="205" text-anchor="end"    font-size="24" fill="#55085E">Growth</text>
-          
-          <!-- Top label -->
-          <text x="300" y="50" text-anchor="middle" font-size="24" fill="#55085E">Technology</text>
-          
-          <!-- Bottom label -->
+          <!-- Labels (balanced offsets from the hex; now with viewBox padding, they won’t clip) -->
+          <text x="300" y="50"  text-anchor="middle" font-size="24" fill="#55085E">Technology</text>
+          <text x="510" y="205" text-anchor="start"  font-size="24" fill="#55085E">Finance</text>
+          <text x="510" y="395" text-anchor="start"  font-size="24" fill="#55085E">Procurement</text>
           <text x="300" y="550" text-anchor="middle" font-size="24" fill="#55085E">Leadership</text>
-
+          <text x="90"  y="395" text-anchor="end"    font-size="24" fill="#55085E">Ethics</text>
+          <text x="90"  y="205" text-anchor="end"    font-size="24" fill="#55085E">Growth</text>
         </svg>
       </div>
   
