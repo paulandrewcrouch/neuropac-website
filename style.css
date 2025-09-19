@@ -244,26 +244,43 @@ ul.rights-list li {
   margin: 2rem 0;
 }
 
+/* Big hex image at the top */
+.logo-hero {
+  text-align: center;
+  margin: 2rem 0;
+}
 .big-hex {
-  display: inline-block;  /* makes the image respect text-align */
-  width: 150px;           /* adjust size as needed */
+  display: inline-block;
+  width: clamp(110px, 18vw, 160px);  /* responsive: min 110, prefers 18vw, max 160 */
   height: auto;
 }
+
+/* Hex diagram wrapper */
 .hex-diagram-container {
   text-align: center;
   margin: 2rem 0;
 }
 
+/* SVG diagram */
 .hex-diagram {
   display: block;
   margin: 2rem auto;
   width: 100%;
-  max-width: 420px;  /* adjust to taste: smaller cap for desktop */
+  max-width: 500px;       /* a touch larger on desktop for presence */
   height: auto;
-  overflow: visible; /* stop clipping */
+  overflow: visible;      /* avoid label clipping */
 }
 
-/* Optional: tiny screens—shave label size slightly */
-@media (max-width: 380px) {
-  .hex-diagram text { font-size: 20px; }
+/* Phones: make labels proportionally bigger for readability */
+@media (max-width: 480px) {
+  .hex-diagram { max-width: 92vw; }       /* let it breathe on small screens */
+  .hex-diagram text { font-size: 28px; }  /* labels up from ~24–26px */
+  /* centre word a bit larger than labels for hierarchy */
+  .hex-diagram text[font-weight="bold"] { font-size: 36px; }
+}
+
+/* Very small phones: slight trim if needed */
+@media (max-width: 360px) {
+  .hex-diagram text { font-size: 26px; }
+  .hex-diagram text[font-weight="bold"] { font-size: 34px; }
 }
