@@ -4,6 +4,7 @@
   <meta charset="utf-8" />
   <title>NEUROPAC — Intelligent Connections</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="NEUROPAC: procurement & technology sourcing, commercial finance & cost transformation, and channel, alliances & partnerships — creating value through intelligent connections.">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,18 +14,17 @@
   <!-- Shared + homepage styles -->
   <link rel="stylesheet" href="style.css">
   <style>
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
   </style>
 </head>
 <body class="home">
   <a href="#main" class="skip-link">Skip to content</a>
+
   <header>
     <nav aria-label="Main navigation">
       <div class="brand">
         <a href="/">
-          <img src="images/fullbanner.png" alt="NEUROPAC fullbanner logo">
+          <img src="images/fullbanner.png" alt="NEUROPAC fullbanner logo" loading="lazy" decoding="async" fetchpriority="low">
         </a>
       </div>
       <a href="mailto:team@neuropac.co.uk" class="contact-link">
@@ -34,10 +34,10 @@
     </nav>
   </header>
 
-  <main id="main" tabindex="-1">
-    <section class="hero">
+  <main id="main" role="main" tabindex="-1">
+    <section class="hero" aria-labelledby="hero-title">
       <div class="wrap">
-        <h1>Creating value through intelligent connections</h1>
+        <h1 id="hero-title">Creating value through intelligent connections</h1>
         <p class="lead">
           NEUROPAC combines expertise in procurement, finance, and strategic alliances, leveraging intelligent connections to generate sustainable value and results that are ready for the board.
         </p>
@@ -45,16 +45,16 @@
       </div>
     </section>
 
-    <section id="services" class="services">
+    <section id="services" class="services" aria-labelledby="services-title">
       <div class="wrap">
-        <h2>Our expertise</h2>
+        <h2 id="services-title">Our expertise</h2>
         <div class="grid cards">
           <div class="card">
-            <h3>Procurement &amp; Technology Sourcing</h3>
+            <h3 id="procurement">Procurement &amp; Technology Sourcing</h3>
             <p>
               Intelligent sourcing considers <strong>more than just price</strong>. We assist organisations in developing supplier strategies that balance cost, risk, and innovation, forging partnerships that generate lasting value in every spending area.
             </p>
-          
+
             <details open>
               <summary>Commercial</summary>
               <ul>
@@ -69,9 +69,9 @@
                 <li>Digital Procurement</li>
               </ul>
             </details>
-          
+
             <details>
-              <summary>Risk & Governance</summary>
+              <summary>Risk &amp; Governance</summary>
               <ul>
                 <li>Contract Governance</li>
                 <li>Risk Management</li>
@@ -79,9 +79,9 @@
                 <li>Continuity Planning</li>
               </ul>
             </details>
-          
+
             <details>
-              <summary>Suppliers & Market</summary>
+              <summary>Suppliers &amp; Market</summary>
               <ul>
                 <li>Supplier Diversification</li>
                 <li>Supplier Remediation</li>
@@ -89,9 +89,9 @@
                 <li>Market Insight</li>
               </ul>
             </details>
-          
+
             <details>
-              <summary>ESG & Ethics</summary>
+              <summary>ESG &amp; Ethics</summary>
               <ul>
                 <li>Sustainability Goals</li>
                 <li>Carbon Accounting</li>
@@ -102,7 +102,7 @@
           </div>
 
           <div class="card">
-            <h3>Commercial Finance &amp; Cost Transformation</h3>
+            <h3 id="finance">Commercial Finance &amp; Cost Transformation</h3>
             <p>
               Connecting numbers to strategy, we assist organisations in making confident, board-level investment decisions that generate sustainable value.
             </p>
@@ -117,7 +117,7 @@
             <p>
               Whether preparing multi-billion funding cases for next-generation networks, optimising energy consumption, or strengthening supplier governance, we provide clarity and confidence in financial decision-making — ensuring benefits are delivered in line with CFO and investor expectations.
             </p>
-          
+
             <details open>
               <summary>Capital Expenditure</summary>
               <ul>
@@ -127,7 +127,7 @@
                 <li>Depreciation Strategy</li>
               </ul>
             </details>
-          
+
             <details>
               <summary>Operational Expenditure</summary>
               <ul>
@@ -137,7 +137,7 @@
                 <li>Service Management</li>
               </ul>
             </details>
-          
+
             <details>
               <summary>Cost Transformation</summary>
               <ul>
@@ -147,7 +147,7 @@
                 <li>Benefits Realisation</li>
               </ul>
             </details>
-          
+
             <details>
               <summary>Commercial Finance</summary>
               <ul>
@@ -160,7 +160,7 @@
           </div>
 
           <div class="card">
-            <h3>Channel, Alliances & Partnerships</h3>
+            <h3 id="alliances">Channel, Alliances &amp; Partnerships</h3>
             <p>
               Channel and alliance strategy requires a fundamentally different mindset to finance or
               procurement — one rooted not in cost control or buying power, however in growth,
@@ -173,6 +173,7 @@
               <strong>channel development</strong> and <strong>delivery governance</strong> —
               bringing together board-level vision, commercial fluency, and operational discipline.
             </p>
+
             <details open>
               <summary>Strategic Alignment</summary>
               <ul>
@@ -182,7 +183,7 @@
                 <li>Stakeholder Engagement</li>
               </ul>
             </details>
-          
+
             <details>
               <summary>Partner Enablement</summary>
               <ul>
@@ -192,7 +193,7 @@
                 <li>Programme Compliance</li>
               </ul>
             </details>
-          
+
             <details>
               <summary>Delivery Governance</summary>
               <ul>
@@ -202,7 +203,7 @@
                 <li>Performance Monitoring</li>
               </ul>
             </details>
-          
+
             <details>
               <summary>Growth &amp; Evolution</summary>
               <ul>
@@ -215,14 +216,14 @@
           </div>
 
           <div class="card full-width">
-            <h3>Leadership</h3>
+            <h3 id="leadership">Leadership</h3>
             <p>
               We bring extensive leadership experience across operations, procurement, finance, and board-level governance. Our capability combines strategic vision with attention to detail — leading diverse teams while also engaging directly with the numbers, contracts, and governance that underpin delivery. Beyond direct management, we have steered complex matrix environments — influencing across business units, geographies, and partner ecosystems — to align stakeholders and deliver large-scale transformation with lasting impact.
             </p>
           </div>
 
           <div class="card full-width">
-            <h3>Risk &amp; Ethics</h3>
+            <h3 id="risk-ethics">Risk &amp; Ethics</h3>
             <p>
               Risk and ethics lie at the heart of how we operate — and how we support others' success. Integrity in figures, transparency in relationships, and accountability in delivery are embedded in every project. By integrating sustainability, governance, and respect for human dignity, we deliver results that are not only commercially strong but also responsible, trusted, and lasting.
             </p>
@@ -231,11 +232,11 @@
       </div>
     </section>
 
-    <a href="brand_story.html" class="about-link">
-      <section id="about" class="about">
+    <a href="brand_story.html" class="about-link" aria-label="Read our brand story">
+      <section id="about" class="about" aria-labelledby="about-title">
         <div class="wrap grid" style="grid-template-columns:1.5fr .8fr;align-items:start">
           <div>
-            <h2>About NEUROPAC</h2>
+            <h2 id="about-title">About NEUROPAC</h2>
             <p>Founded in 2022 and incorporated in 2025, NEUROPAC combines <em>neuro</em>, focusing on pathways of intelligence, adaptive thinking and dynamic connections, with a clear commitment to safeguarding value and fostering growth.</p>
             <p>Our approach combines board-level rigour with hands-on delivery. Strategies are crafted to work in the real world, with figures that withstand CFO scrutiny and results that endure.</p>
             <p>Based in London, we undertake projects throughout the UK and internationally. Chartered IT, engineering, procurement, and accounting expertise supports a pragmatic, trustworthy approach—fostering intelligent connections, ensuring clear accountability, and delivering measurable outcomes.</p>
@@ -244,10 +245,10 @@
       </section>
     </a>
 
-    <section id="contact" class="contact">
+    <section id="contact" class="contact" aria-labelledby="contact-title">
       <div class="wrap grid" style="grid-template-columns:1fr;gap:24px">
         <div>
-          <h2>Working together</h2>
+          <h2 id="contact-title">Working together</h2>
           <p>
             Start a conversation with our team: <a href="mailto:team@neuropac.co.uk">team@neuropac.co.uk</a>
           </p>
@@ -261,7 +262,7 @@
       <div class="brand">
         <!-- Tiny clickable hex leading to the logo story -->
         <a href="brand_story.html" title="Read the NEUROPAC logo story">
-          <img src="images/hex.png" alt="NEUROPAC hex logo (link to logo story)" class="footer-hex">
+          <img src="images/hex.png" alt="NEUROPAC hex logo (link to logo story)" class="footer-hex" loading="lazy" decoding="async" fetchpriority="low">
         </a>
       </div>
       <div class="small">© <span id="year"></span> NEUROPAC. All rights reserved.</div>
@@ -278,10 +279,10 @@
   </footer>
 
   <script>
-    // footer year
+    // Footer year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // pad main content for fixed footer on desktop
+    // Pad main content for fixed footer on desktop
     const footer = document.getElementById('site-footer');
     const mainEl = document.querySelector('main');
     function padForFooter(){
