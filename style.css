@@ -44,12 +44,29 @@ body{
   text-rendering:optimizeLegibility;
 }
 
-/* Watermark */
+/* =========================
+   Watermark (responsive subtlety)
+   - Slightly stronger on larger viewports (desktop)
+   - Softer on small phones
+========================= */
 body::before{
   content:"";
   position:fixed; inset:0;
   background:url('images/hex.png') center/70vmin no-repeat;
-  opacity:.07; pointer-events:none; z-index:-1; filter:grayscale(100%);
+  opacity:.06;                 /* base (tablet/mobile default) */
+  pointer-events:none; z-index:-1; filter:grayscale(100%);
+}
+/* Very small phones: a touch softer */
+@media (max-width:680px){
+  body::before{ opacity:.045; background-size:90vmin; }
+}
+/* Desktop: make it more visible so it doesn't fade out */
+@media (min-width:1024px){
+  body::before{ opacity:.10; }
+}
+/* Very large desktops: tiny nudge more, still tasteful */
+@media (min-width:1440px){
+  body::before{ opacity:.12; }
 }
 
 /* Media */
@@ -182,7 +199,7 @@ p, li{
   .wrap, main{padding:var(--space-4)}
 }
 @media (max-width:680px){
-  body::before{opacity:.035;background-size:90vmin}
+  /* watermark tuning happens above */
   .wrap, main{padding:var(--space-3)}
   .brand img{height:64px}
 }
@@ -290,6 +307,9 @@ ul.rights-list li{margin-bottom:.5rem}
   .footer-hex{transition:none}
 }
 
+/* =========================
+   About link (section-as-link)
+========================= */
 .about-link {
   display:block;
   color:inherit;
@@ -298,6 +318,7 @@ ul.rights-list li{margin-bottom:.5rem}
 .about-link:hover {
   background:rgba(85,8,94,.03); /* subtle hover */
 }
+
 /* =========================
    Services grid & cards
    (three columns → two → one)
@@ -321,10 +342,21 @@ ul.rights-list li{margin-bottom:.5rem}
 
 .services .card{
   display:flex; flex-direction:column;
-  border:1px solid #e5e7eb; border-radius:var(--radius);
-  background:#fff; padding:var(--space-3);
+  border:1px solid #e5e7eb;
+  border-radius:var(--radius);
+  background:#fff;
+  padding:var(--space-3);
   box-shadow:0 1px 2px rgba(0,0,0,.04);
 }
+
+/* Desktop: slightly stronger borders/shadow so boxes read on big screens */
+@media (min-width:1024px){
+  .services .card{
+    border-color:rgba(0,0,0,0.12);
+    box-shadow:0 1px 3px rgba(0,0,0,0.06);
+  }
+}
+
 .services .card.full-width{ grid-column:1 / -1 }
 
 /* Tighter readable copy inside cards */
@@ -359,7 +391,9 @@ ul.rights-list li{margin-bottom:.5rem}
 .services details ul{ margin:.5rem 0 0; padding-left:1.1rem }
 .services details li{ margin:.25rem 0 }
 
-/* Optional: subtle CTA at bottom of each card */
+/* =========================
+   Optional CTA in cards
+========================= */
 .card .card-cta{
   margin-top:auto; padding-top:.8rem;
   border-top:1px dashed #e7e4ea;
@@ -368,6 +402,3 @@ ul.rights-list li{margin-bottom:.5rem}
   color:var(--primary); text-decoration:none; font-weight:600;
 }
 .card .card-cta a:hover{ text-decoration:underline }
-
-/* Softer watermark behind content (keeps logo but reduces contrast a touch) */
-body::before{ opacity:.04 }
