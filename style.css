@@ -298,3 +298,72 @@ ul.rights-list li{margin-bottom:.5rem}
 .about-link:hover {
   background:rgba(85,8,94,.03); /* subtle hover */
 }
+/* =========================
+   Services grid & cards
+   (three columns → two → one)
+========================= */
+.services .cards{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:20px;
+  align-items:stretch;                 /* equal heights */
+}
+@media (max-width:1000px){
+  .services .cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:640px){
+  .services .cards{grid-template-columns:1fr}
+}
+
+.services .card{
+  display:flex; flex-direction:column;
+  border:1px solid #e5e7eb; border-radius:var(--radius);
+  background:#fff; padding:var(--space-3);
+  box-shadow:0 1px 2px rgba(0,0,0,.04);
+}
+.services .card.full-width{ grid-column:1 / -1 }
+
+/* Tighter readable copy inside cards */
+.services .card p{ max-width:64ch; line-height:1.7; margin:0 0 .8rem }
+
+/* =========================
+   Brand-styled details/summary
+========================= */
+.services details{
+  border-top:1px solid #f0f0f3;
+  padding-top:.6rem; margin-top:.8rem;
+}
+.services summary{
+  list-style:none; cursor:pointer;
+  font-weight:600; color:var(--primary);
+  display:flex; align-items:center; gap:.5rem;
+}
+.services summary::-webkit-details-marker{ display:none }
+.services summary::before{
+  content:"▸"; font-size:.9em; line-height:1;
+  transition:transform .2s ease;
+  color:var(--primary);
+}
+.services details[open] > summary::before{ transform:rotate(90deg) }
+
+.services summary:focus-visible{
+  outline:2px solid var(--accent);
+  outline-offset:3px; border-radius:6px;
+}
+
+/* UL spacing within details */
+.services details ul{ margin:.5rem 0 0; padding-left:1.1rem }
+.services details li{ margin:.25rem 0 }
+
+/* Optional: subtle CTA at bottom of each card */
+.card .card-cta{
+  margin-top:auto; padding-top:.8rem;
+  border-top:1px dashed #e7e4ea;
+}
+.card .card-cta a{
+  color:var(--primary); text-decoration:none; font-weight:600;
+}
+.card .card-cta a:hover{ text-decoration:underline }
+
+/* Softer watermark behind content (keeps logo but reduces contrast a touch) */
+body::before{ opacity:.04 }
