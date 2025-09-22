@@ -191,3 +191,35 @@
   </footer>
 </body>
 </html>
+.cred-band {
+  margin: 1.25rem auto 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.25rem 1.5rem;
+  align-items: center;
+}
+.cred-item {
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+  text-decoration: none;
+}
+.cred-item img {
+  height: 42px; 
+  width: auto; 
+  display: block; 
+  filter: grayscale(20%);
+  transition: filter .2s;
+}
+.cred-item:hover img { filter: none; }
+.cred-item span {
+  font-size: .95rem;
+  color: #374151;
+}
+.cred-note {
+  font-size: .85rem;
+  color: #6b7280;
+  margin-top: .25rem;
+  text-align: center;
+}
