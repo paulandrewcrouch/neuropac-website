@@ -289,3 +289,12 @@ ul.rights-list li{margin-bottom:.5rem}
   *{scroll-behavior:auto!important}
   .footer-hex{transition:none}
 }
+
+.about-link {
+  display:block;
+  color:inherit;
+  text-decoration:none;
+}
+.about-link:hover {
+  background:rgba(85,8,94,.03); /* subtle hover */
+}
