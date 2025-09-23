@@ -73,32 +73,27 @@
       gap: 1rem 1.25rem;
       align-items: center;
     }
+    
     .credentials a {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: .6rem .8rem;
-      background: var(--chip);
-      border-radius: 12px;
+      padding: 0;              /* no extra padding */
+      background: transparent; /* no background */
+      border-radius: 0;        /* no rounded edges */
       text-decoration: none;
     }
     .credentials img {
-      height: 56px;          /* consistent visual height */
+      height: 56px; 
       width: auto;
-      max-width: 100%;
       display: block;
       filter: grayscale(20%);
-      transition: filter .2s ease;
+      transition: filter 0.2s;
     }
-    .credentials a:hover img { filter: none; }
+    .credentials a:hover img {
+      filter: none;
+    }
 
-    /* Legal note (optional) */
-    .cred-note {
-      font-size: .85rem;
-      color: #6b7280;
-      margin: .75rem auto 0;
-      text-align: center;
-    }
 
     /* Sections */
     .stack {
