@@ -5,84 +5,133 @@
   <title>Crouch Commercial Services</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Google Font Montserrat -->
+  <!-- Google Font: Montserrat -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 
   <style>
+    :root {
+      --brand: #55085E;
+      --ink: #1f2937;
+      --bg: #f9f9fb;
+      --chip: #f3f4f6;
+      --chip-dark: #1f1f1f;
+    }
+
+    /* Base */
+    html, body { height: 100%; }
     body {
       font-family: 'Montserrat', sans-serif;
       margin: 0;
-      padding: 0;
-      background: #f9f9fb;
-      color: #1f2937;
+      color: var(--ink);
+      background: var(--bg);
       line-height: 1.6;
     }
+
+    /* Header */
     header {
-      background: #ffffff;
-      color: #55085E;
+      background: #fff;
+      color: var(--brand);
       text-align: center;
       padding: 3rem 1rem 2rem;
-      border-bottom: 2px solid #55085E;
+      border-bottom: 2px solid var(--brand);
     }
     header h1 {
       margin: 0;
       font-size: 2.2rem;
       font-weight: 700;
-      letter-spacing: 0.5px;
+      letter-spacing: .5px;
     }
     header p {
-      margin-top: 0.5rem;
+      margin-top: .5rem;
       font-weight: 500;
       font-size: 1.2rem;
       color: #444;
     }
+
+    /* Main */
     main {
-      max-width: 760px;
+      max-width: 820px;
       margin: 2rem auto;
       padding: 0 1.2rem;
       text-align: center;
     }
     main h2 {
-      color: #55085E;
+      color: var(--brand);
       margin-top: 2rem;
       font-size: 1.4rem;
       font-weight: 600;
     }
+    main p { margin: 0 auto 1rem; }
+
+    /* Credentials grid (single source of truth) */
     .credentials {
-      margin: 2rem 0;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1.5rem;
+      margin: 2rem auto 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 1rem 1.25rem;
       align-items: center;
     }
-    .credentials a img {
-      max-height: 50px;
+    .credentials a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: .6rem .8rem;
+      background: var(--chip);
+      border-radius: 12px;
+      text-decoration: none;
+    }
+    .credentials img {
+      height: 56px;          /* consistent visual height */
       width: auto;
+      max-width: 100%;
       display: block;
       filter: grayscale(20%);
-      transition: filter 0.2s;
+      transition: filter .2s ease;
     }
-    .credentials a:hover img {
-      filter: none;
+    .credentials a:hover img { filter: none; }
+
+    /* Legal note (optional) */
+    .cred-note {
+      font-size: .85rem;
+      color: #6b7280;
+      margin: .75rem auto 0;
+      text-align: center;
     }
+
+    /* Sections */
+    .stack {
+      margin-top: 2rem;
+    }
+    .stack p { margin: .4rem 0; }
+
+    /* Footer */
     footer {
       margin-top: 3rem;
       padding: 1.5rem;
-      font-size: 0.9rem;
+      font-size: .9rem;
       color: #555;
       text-align: center;
       border-top: 1px solid #ddd;
+      background: #fff;
     }
     footer a {
-      color: #55085E;
+      color: var(--brand);
       text-decoration: none;
       font-weight: 600;
     }
-    footer a:hover {
-      text-decoration: underline;
+    footer a:hover { text-decoration: underline; }
+
+    /* Dark mode niceties */
+    @media (prefers-color-scheme: dark) {
+      body { background: #0b0b0c; color: #e7e7e7; }
+      header { background: #121214; border-bottom-color: var(--brand); }
+      header p { color: #c9c9c9; }
+      .credentials a { background: var(--chip-dark); }
+      .credentials img { filter: brightness(1.08) contrast(1.06) grayscale(12%); }
+      .cred-note { color: #9aa0a6; }
+      footer { background: #121214; border-top-color: #2a2a2a; color: #cfcfcf; }
     }
   </style>
 </head>
@@ -92,119 +141,72 @@
     <p>Pragmatic commercial, procurement, and finance expertise</p>
   </header>
 
-<main>
-  <h2>About</h2>
-  <p>
-    Led by <strong>Paul Crouch</strong> — Chartered Management Accountant (CGMA), Chartered Engineer (CEng),
-    CIPS Chartered and Certified, Chartered IT Professional (CITP).
-    Fellow of CIMA, CIPS, BCS, and IET. Freeman of the City of London, Liveryman of the Worshipful Company of Engineers.
-    MBA from Cambridge Judge Business School.
-  </p>
-
-  <div class="credentials" aria-label="Professional memberships and honours">
-    <a href="https://www.cimaglobal.com" target="_blank" rel="noopener" title="CIMA">
-      <img src="images/ccs-images/cima.svg" alt="CIMA" loading="lazy" decoding="async">
-    </a>
-    <a href="https://www.cips.org" target="_blank" rel="noopener" title="CIPS (FCIPS Chartered)">
-      <img src="images/ccs-images/fcips_chartered.svg" alt="CIPS—FCIPS Chartered" loading="lazy" decoding="async">
-    </a>
-    <a href="https://www.bcs.org" target="_blank" rel="noopener" title="BCS (CITP / Fellow)">
-      <img src="images/ccs-images/citp.svg" alt="BCS—CITP" loading="lazy" decoding="async">
-    </a>
-    <a href="https://www.bcs.org" target="_blank" rel="noopener" title="BCS Fellow">
-      <img src="images/ccs-images/bcs_fellow.svg" alt="BCS Fellow" loading="lazy" decoding="async">
-    </a>
-    <a href="https://www.theiet.org" target="_blank" rel="noopener" title="IET Fellow">
-      <img src="images/ccs-images/iet.svg" alt="IET Fellow" loading="lazy" decoding="async">
-    </a>
-    <a href="https://www.engc.org.uk" target="_blank" rel="noopener" title="Engineering Council (CEng)">
-      <img src="images/ccs-images/ceng.svg" alt="Engineering Council—CEng" loading="lazy" decoding="async">
-    </a>
-    <a href="https://www.jbs.cam.ac.uk" target="_blank" rel="noopener" title="Cambridge Judge Business School (MBA)">
-      <img src="images/ccs-images/cambridge-judge.svg" alt="Cambridge Judge Business School" loading="lazy" decoding="async">
-    </a>
-    <a href="https://www.cityoflondon.gov.uk" target="_blank" rel="noopener" title="Freeman of the City of London">
-      <img src="images/ccs-images/city_of_london.svg" alt="City of London" loading="lazy" decoding="async">
-    </a>
-    <a href="https://www.wcoengineers.org.uk" target="_blank" rel="noopener" title="Worshipful Company of Engineers (Liveryman)">
-      <img src="images/ccs-images/wcoe.svg" alt="Worshipful Company of Engineers" loading="lazy" decoding="async">
-    </a>
-  </div>
-</main>
-
-
-    <div class="cred-band" aria-label="Professional memberships and qualifications">
-  <!-- CIMA -->
-  <a class="cred-item" href="https://www.cimaglobal.com" target="_blank" rel="noopener">
-    <img src="images/ccs-logos/cima.png" alt="CIMA">
-    <span>Fellow (FCMA)</span>
-  </a>
-
-  <!-- CIPS Fellow -->
-  <a class="cred-item" href="https://www.cips.org" target="_blank" rel="noopener">
-    <img src="images/ccs-logos/cips-fcips-chartered.png" alt="CIPS">
-    <span>Fellow (FCIPS)</span>
-  </a>
-
-  <!-- CIPS Ethics -->
-  <a class="cred-item" href="https://www.cips.org/about-us/governance/ethics" target="_blank" rel="noopener">
-    <img src="images/ccs-logos/cips-ethics.png" alt="CIPS Ethics">
-    <span>CIPS Ethics</span>
-  </a>
-
-  <!-- BCS Fellow -->
-  <a class="cred-item" href="https://www.bcs.org/membership/become-a-member/fellowship/" target="_blank" rel="noopener">
-    <img src="images/ccs-logos/bcs-fellow.jpg" alt="BCS, The Chartered Institute for IT">
-    <span>Fellow (FBCS)</span>
-  </a>
-
-  <!-- CITP -->
-  <a class="cred-item" href="https://www.bcs.org/membership/become-chartered/chartered-it-professional/" target="_blank" rel="noopener">
-    <img src="images/ccs-logos/citp.png" alt="Chartered IT Professional">
-    <span>CITP</span>
-  </a>
-
-  <!-- IET Fellow -->
-  <a class="cred-item" href="https://www.theiet.org" target="_blank" rel="noopener">
-    <img src="images/ccs-logos/iet.svg" alt="IET">
-    <span>Fellow (FIET)</span>
-  </a>
-
-  <!-- Cambridge Judge MBA -->
-  <a class="cred-item" href="https://www.jbs.cam.ac.uk/" target="_blank" rel="noopener">
-    <img src="images/ccs-logos/cambridge-judge.jpg" alt="Cambridge Judge Business School">
-    <span>MBA</span>
-  </a>
-
-  <!-- City of London -->
-  <a class="cred-item" href="https://www.cityoflondon.gov.uk/about-us/law-historic-governance/freedom-of-the-city" target="_blank" rel="noopener">
-    <img src="images/ccs-logos/city-of-london.svg" alt="City of London">
-    <span>Freeman</span>
-  </a>
-
-  <!-- Worshipful Company of Engineers -->
-  <a class="cred-item" href="https://www.engineerscompany.org.uk/" target="_blank" rel="noopener">
-    <img src="images/ccs-logos/wcoe.png" alt="Worshipful Company of Engineers">
-    <span>Liveryman</span>
-  </a>
-</div>
-
-<div class="cred-note">
-  Logos shown as membership/awards marks. Usage subject to each organisation’s brand policy.
-</div>
-
-    <h2>Services</h2>
+  <main>
+    <h2>About</h2>
     <p>
-      Procurement advisory<br>
-      Commercial governance<br>
-      Finance and cost management<br>
-      Leadership and project delivery
+      Led by <strong>Paul Crouch</strong> — Chartered Management Accountant (CGMA), Chartered Engineer (CEng),
+      CIPS Chartered and Certified, Chartered IT Professional (CITP). Fellow of CIMA, CIPS, BCS, and IET.
+      Freeman of the City of London, Liveryman of the Worshipful Company of Engineers. MBA from Cambridge Judge Business School.
     </p>
 
-    <h2>Contact</h2>
-    <p>
-      Email: <a href="mailto:paul@crouch.pro">paul@crouch.pro</a>
-    </p>
+    <div class="credentials" aria-label="Professional memberships and honours">
+      <a href="https://www.cimaglobal.com" target="_blank" rel="noopener" title="CIMA (FCMA)">
+        <img src="images/ccs-images/cima.svg" alt="CIMA — Fellow (FCMA)" loading="lazy" decoding="async">
+      </a>
+
+      <a href="https://www.cips.org" target="_blank" rel="noopener" title="CIPS — Fellow (FCIPS) Chartered">
+        <img src="images/ccs-images/fcips_chartered.svg" alt="CIPS — Fellow (FCIPS) Chartered" loading="lazy" decoding="async">
+      </a>
+
+      <a href="https://www.cips.org/about-us/governance/ethics" target="_blank" rel="noopener" title="CIPS Ethics Test — Current">
+        <img src="images/ccs-images/cips-ethics.svg" alt="CIPS Ethics — Passed" loading="lazy" decoding="async">
+      </a>
+
+      <a href="https://www.bcs.org/membership/become-chartered/chartered-it-professional/" target="_blank" rel="noopener" title="BCS — Chartered IT Professional (CITP)">
+        <img src="images/ccs-images/citp.svg" alt="BCS — CITP" loading="lazy" decoding="async">
+      </a>
+
+      <a href="https://www.bcs.org/membership/become-a-member/fellowship/" target="_blank" rel="noopener" title="BCS — Fellow (FBCS)">
+        <img src="images/ccs-images/bcs_fellow.svg" alt="BCS — Fellow (FBCS)" loading="lazy" decoding="async">
+      </a>
+
+      <a href="https://www.theiet.org" target="_blank" rel="noopener" title="IET — Fellow (FIET)">
+        <img src="images/ccs-images/iet.svg" alt="IET — Fellow (FIET)" loading="lazy" decoding="async">
+      </a>
+
+      <a href="https://www.engc.org.uk" target="_blank" rel="noopener" title="Engineering Council — Chartered Engineer (CEng)">
+        <img src="images/ccs-images/ceng.svg" alt="Engineering Council — CEng" loading="lazy" decoding="async">
+      </a>
+
+      <a href="https://www.jbs.cam.ac.uk" target="_blank" rel="noopener" title="Cambridge Judge Business School — MBA">
+        <img src="images/ccs-images/cambridge-judge.svg" alt="Cambridge Judge Business School — MBA" loading="lazy" decoding="async">
+      </a>
+
+      <a href="https://www.cityoflondon.gov.uk/about-us/law-historic-governance/freedom-of-the-city" target="_blank" rel="noopener" title="Freeman of the City of London">
+        <img src="images/ccs-images/city_of_london.svg" alt="Freeman of the City of London" loading="lazy" decoding="async">
+      </a>
+
+      <a href="https://www.engineerscompany.org.uk" target="_blank" rel="noopener" title="Worshipful Company of Engineers — Liveryman">
+        <img src="images/ccs-images/wcoe.svg" alt="Worshipful Company of Engineers — Liveryman" loading="lazy" decoding="async">
+      </a>
+    </div>
+
+    <div class="cred-note">
+      Logos shown as membership/award marks. Usage subject to each organisation’s brand policy.
+    </div>
+
+    <section class="stack">
+      <h2>Services</h2>
+      <p>Procurement advisory</p>
+      <p>Commercial governance</p>
+      <p>Finance and cost management</p>
+      <p>Leadership and project delivery</p>
+    </section>
+
+    <section class="stack">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:paul@crouch.pro">paul@crouch.pro</a></p>
+    </section>
   </main>
 
   <footer>
@@ -214,35 +216,3 @@
   </footer>
 </body>
 </html>
-.cred-band {
-  margin: 1.25rem auto 2rem;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1.25rem 1.5rem;
-  align-items: center;
-}
-.cred-item {
-  display: inline-flex;
-  align-items: center;
-  gap: .6rem;
-  text-decoration: none;
-}
-.cred-item img {
-  height: 42px; 
-  width: auto; 
-  display: block; 
-  filter: grayscale(20%);
-  transition: filter .2s;
-}
-.cred-item:hover img { filter: none; }
-.cred-item span {
-  font-size: .95rem;
-  color: #374151;
-}
-.cred-note {
-  font-size: .85rem;
-  color: #6b7280;
-  margin-top: .25rem;
-  text-align: center;
-}
