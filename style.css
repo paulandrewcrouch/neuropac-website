@@ -1,4 +1,31 @@
 /* =========================
+   Self-hosted webfont (Gelasio)
+   Served from our own domain instead of Google Fonts, so no
+   third-party request or IP transfer happens when this page loads.
+========================= */
+@font-face{
+  font-family:"Gelasio";
+  font-style:normal;
+  font-weight:400;
+  font-display:swap;
+  src:url("fonts/gelasio-latin-400-normal.woff2") format("woff2");
+}
+@font-face{
+  font-family:"Gelasio";
+  font-style:normal;
+  font-weight:600;
+  font-display:swap;
+  src:url("fonts/gelasio-latin-600-normal.woff2") format("woff2");
+}
+@font-face{
+  font-family:"Gelasio";
+  font-style:normal;
+  font-weight:700;
+  font-display:swap;
+  src:url("fonts/gelasio-latin-700-normal.woff2") format("woff2");
+}
+
+/* =========================
    Core brand + layout
 ========================= */
 :root{

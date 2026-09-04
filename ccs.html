@@ -10,12 +10,32 @@
   <link rel="icon" href="/images/favicon-32.png" type="image/png">
   <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
 
-  <!-- Google Font: Montserrat -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-
   <style>
+    /* Self-hosted webfont (Montserrat): served from our own domain
+       instead of Google Fonts, so no third-party request or IP
+       transfer happens when this page loads. */
+    @font-face{
+      font-family:"Montserrat";
+      font-style:normal;
+      font-weight:400;
+      font-display:swap;
+      src:url("fonts/montserrat-latin-400-normal.woff2") format("woff2");
+    }
+    @font-face{
+      font-family:"Montserrat";
+      font-style:normal;
+      font-weight:600;
+      font-display:swap;
+      src:url("fonts/montserrat-latin-600-normal.woff2") format("woff2");
+    }
+    @font-face{
+      font-family:"Montserrat";
+      font-style:normal;
+      font-weight:700;
+      font-display:swap;
+      src:url("fonts/montserrat-latin-700-normal.woff2") format("woff2");
+    }
+
     :root {
       --brand: #55085E;
       --ink: #1f2937;
