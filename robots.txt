@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /luggage.html
+
+Sitemap: https://neuropac.co.uk/sitemap.xml
