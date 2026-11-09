@@ -209,6 +209,14 @@ p, li{
   max-width:800px; margin:0 auto 16px; color:#374151; text-align:center
 }
 .home .location-line{font-size:13px;color:var(--muted);margin-top:6px;text-align:center}
+.home .hero-cta{text-align:center;margin:20px 0 0}
+.cta-button{
+  display:inline-block; padding:10px 22px; border-radius:var(--radius);
+  background:var(--primary); color:#fff; text-decoration:none; font-weight:600;
+}
+.cta-button:hover, .cta-button:focus-visible{background:#3d0644; color:#fff}
+.cta-button:focus-visible{outline:2px solid var(--primary); outline-offset:3px}
+.home .contact{padding-top:0}
 
 /* =========================
    Accessibility
